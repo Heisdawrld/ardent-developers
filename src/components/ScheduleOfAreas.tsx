@@ -43,7 +43,7 @@ export default function ScheduleOfAreas() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+          className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2 -ml-1"
         >
           residences
         </motion.p>
@@ -74,7 +74,7 @@ export default function ScheduleOfAreas() {
                   <h3 className="text-lg font-semibold mb-1">{unit.type}</h3>
                   <p className="text-[13px] text-foreground/40">{unit.block}</p>
                 </div>
-                <span className="inline-flex px-3 py-1 bg-leaf-soft text-accent text-[11px] font-semibold rounded-full w-fit">
+                <span className="inline-flex px-3 py-1 bg-accent-muted text-accent text-[11px] font-semibold rounded-full w-fit">
                   {unit.status}
                 </span>
               </div>

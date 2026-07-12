@@ -34,7 +34,7 @@ export default function Header() {
           {/* Logo — white silhouette over dark hero, full color (with multiply blend to drop white bg) on scrolled white header */}
           <a href="#" className="flex items-center shrink-0">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Ardent Limited — Redefining Modern Living"
               width={140}
               height={40}
@@ -80,8 +80,8 @@ export default function Header() {
               href="#register"
               className={`px-5 py-2 text-[13px] font-medium rounded-full transition-colors ${
                 scrolled
-                  ? "bg-accent text-white hover:bg-leaf hover:text-foreground"
-                  : "bg-white text-foreground hover:bg-leaf"
+                  ? "bg-accent text-white hover:bg-accent-light"
+                  : "bg-white text-foreground hover:bg-accent-muted"
               }`}
             >
               Register Interest
@@ -122,7 +122,7 @@ export default function Header() {
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {/* Logo at top of mobile menu */}
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Ardent Limited"
             width={120}
             height={40}

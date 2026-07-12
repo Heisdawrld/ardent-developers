@@ -39,12 +39,12 @@ export default function FAQ() {
     <section id="faq" className="relative py-20 lg:py-28 bg-white overflow-hidden">
       <LeafDecor
         variant="leaf"
-        className="top-12 -left-8 w-32 text-leaf opacity-[0.10]"
+        className="top-12 -left-8 w-32 text-accent opacity-[0.10]"
       />
       <LeafDecor
         variant="leaf"
         flip
-        className="bottom-12 -right-8 w-32 text-leaf opacity-[0.10]"
+        className="bottom-12 -right-8 w-32 text-accent opacity-[0.10]"
       />
       <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">
         <div className="text-center mb-14">
@@ -53,7 +53,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2"
+            className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2"
           >
             faq
           </motion.p>
@@ -94,17 +94,17 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.04 }}
-              className="border border-sand rounded-xl overflow-hidden hover:border-leaf/50 transition-colors"
+              className="border border-sand rounded-xl overflow-hidden hover:border-accent/50 transition-colors"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-mint/40 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left hover:bg-cream/40 transition-colors"
               >
                 <span className="text-sm font-medium pr-4">
                   {faq.question}
                 </span>
                 <svg
-                  className={`w-4 h-4 text-leaf shrink-0 transition-transform duration-200 ${
+                  className={`w-4 h-4 text-accent shrink-0 transition-transform duration-200 ${
                     openIndex === i ? "rotate-180" : ""
                   }`}
                   fill="none"

@@ -1,24 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  /* ===== Habitat-style palette ===== */
-  --background: #ffffff;
-  --foreground: #0f2311; /* deep forest, almost black-green */
-  --accent: #0f2311; /* deep forest */
-  --accent-light: #1b3d1f; /* slightly lifted forest for hovers */
-  --accent-muted: #eff5e5; /* pale mint chip background */
-  --leaf: #89cc27; /* vibrant leaf green — the pop */
-  --leaf-soft: #d1f2d4; /* soft mint pastel */
-  --mint: #f7ffeb; /* paper mint */
-  --aqua: #eafdfc; /* near-white aqua */
-  --aqua-deep: #dafffe; /* deeper aqua pastel */
-  --lavender: #efe7fa; /* lavender pastel */
-  --lavender-deep: #e9b4e8; /* pink pastel */
-  --cream: #fffed4; /* warm pale yellow */
-  --sand: #e5e0d5; /* keep neutral border */
-  --warm-gray: #f6f6f6; /* near-white section bg */
-  --pop: #8a38f5; /* purple pop */
-  --rose: #fcefef; /* pale rose */
+  /* ===== Kota No.1 editorial palette (warm cream + terracotta + charcoal) ===== */
+  --background: #F5F2ED;        /* warm cream — page background */
+  --foreground: #1A1A1A;        /* near-black for body text */
+  --accent: #B5543A;            /* deep terracotta — primary accent */
+  --accent-light: #C56A52;      /* lifted terracotta for hovers */
+  --accent-muted: #F2E4DD;      /* pale terracotta tint for chips */
+  --terracotta-deep: #8B3A26;   /* deeper terracotta for dark sections */
+  --beige: #C4B5A0;             /* soft taupe/beige — secondary surface */
+  --beige-soft: #E8E0D2;        /* lifted beige for cards */
+  --brown: #8B7355;             /* warm brown — tertiary accent */
+  --charcoal: #2D2D2D;          /* dark charcoal — dark section backgrounds */
+  --ink: #1A1A1A;               /* black ink for text */
+  --cream: #FAF7F0;             /* lighter cream for alternating sections */
+  --gold: #E6C88C;              /* Ardent logo tagline gold — special accent */
+  --sand: #E5E0D5;              /* neutral border */
+  --warm-gray: #F6F4EF;         /* near-cream warm gray */
 }
 
 @theme inline {
@@ -27,18 +25,16 @@
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-muted: var(--accent-muted);
-  --color-leaf: var(--leaf);
-  --color-leaf-soft: var(--leaf-soft);
-  --color-mint: var(--mint);
-  --color-aqua: var(--aqua);
-  --color-aqua-deep: var(--aqua-deep);
-  --color-lavender: var(--lavender);
-  --color-lavender-deep: var(--lavender-deep);
+  --color-terracotta-deep: var(--terracotta-deep);
+  --color-beige: var(--beige);
+  --color-beige-soft: var(--beige-soft);
+  --color-brown: var(--brown);
+  --color-charcoal: var(--charcoal);
+  --color-ink: var(--ink);
   --color-cream: var(--cream);
+  --color-gold: var(--gold);
   --color-sand: var(--sand);
   --color-warm-gray: var(--warm-gray);
-  --color-pop: var(--pop);
-  --color-rose: var(--rose);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-script: var(--font-arizonia);

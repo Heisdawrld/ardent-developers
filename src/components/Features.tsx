@@ -52,7 +52,7 @@ export default function Features() {
       <LeafDecor
         variant="branch"
         flip
-        className="bottom-10 -right-10 w-64 text-leaf opacity-[0.18]"
+        className="bottom-10 -right-10 w-64 text-white opacity-[0.18]"
       />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -62,7 +62,7 @@ export default function Features() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+            className="font-script text-white text-3xl lg:text-4xl leading-none mb-2 -ml-1"
           >
             ecosystem
           </motion.p>
@@ -71,7 +71,7 @@ export default function Features() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05, duration: 0.6 }}
-            className="text-leaf/80 text-[11px] uppercase tracking-[0.18em] mb-2 mt-2"
+            className="text-white/80 text-[11px] uppercase tracking-[0.18em] mb-2 mt-2"
           >
             Our Ecosystem
           </motion.p>
@@ -109,7 +109,7 @@ export default function Features() {
               transition={{ delay: i * 0.06 }}
               className="group bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/[0.12] transition-colors"
             >
-              <p className="text-leaf text-3xl font-bold mb-4">
+              <p className="text-white text-3xl font-bold mb-4">
                 {feat.number}
               </p>
               <h3 className="text-white text-base font-semibold mb-2">

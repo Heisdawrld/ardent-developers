@@ -34,7 +34,7 @@ export default function DesignDoctrine() {
     <section className="relative py-20 lg:py-32 bg-white overflow-hidden">
       <LeafDecor
         variant="monstera"
-        className="top-0 right-0 w-56 lg:w-72 text-leaf opacity-[0.08]"
+        className="top-0 right-0 w-56 lg:w-72 text-accent opacity-[0.10]"
       />
       <LeafDecor
         variant="leaf"
@@ -51,7 +51,7 @@ export default function DesignDoctrine() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+              className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2 -ml-1"
             >
               doctrine
             </motion.p>
@@ -84,7 +84,7 @@ export default function DesignDoctrine() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 + i * 0.08 }}
                 >
-                  <p className="text-leaf text-sm font-semibold lowercase tracking-wide mb-1">
+                  <p className="text-accent text-sm font-semibold lowercase tracking-wide mb-1">
                     {p.word}
                   </p>
                   <p className="text-[15px] text-foreground/60 leading-relaxed">

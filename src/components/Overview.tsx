@@ -22,7 +22,7 @@ export default function Overview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+            className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2 -ml-1"
           >
             overview
           </motion.p>

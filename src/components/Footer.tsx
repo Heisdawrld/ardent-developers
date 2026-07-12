@@ -8,12 +8,12 @@ export default function Footer() {
     <footer className="relative bg-foreground text-background overflow-hidden">
       <LeafDecor
         variant="leaf"
-        className="top-8 -left-6 w-32 text-leaf opacity-[0.10]"
+        className="top-8 -left-6 w-32 text-accent opacity-[0.15]"
       />
       <LeafDecor
         variant="leaf"
         flip
-        className="top-8 -right-6 w-32 text-leaf opacity-[0.10]"
+        className="top-8 -right-6 w-32 text-accent opacity-[0.15]"
       />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 py-14 lg:py-16">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             {/* White-silhouette logo on dark footer */}
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Ardent Limited — Redefining Modern Living"
               width={160}
               height={48}
@@ -57,7 +57,7 @@ export default function Footer() {
               href="https://www.instagram.com/ardentdevelopers/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-background/40 hover:text-leaf transition-colors"
+              className="text-[13px] text-background/40 hover:text-accent transition-colors"
             >
               Instagram
             </a>

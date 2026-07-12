@@ -18,10 +18,10 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <section className="relative py-16 lg:py-24 bg-mint overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-cream overflow-hidden">
       <LeafDecor
         variant="drop"
-        className="top-8 right-6 w-16 text-leaf opacity-[0.18]"
+        className="top-8 right-6 w-16 text-accent opacity-[0.20]"
       />
       <LeafDecor
         variant="potted"
@@ -33,7 +33,7 @@ export default function Amenities() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+          className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2 -ml-1"
         >
           amenities
         </motion.p>
@@ -65,7 +65,7 @@ export default function Amenities() {
           className="border border-sand rounded-xl overflow-hidden"
         >
           {/* Header */}
-          <div className="grid grid-cols-2 py-3 px-6 bg-leaf-soft/40 border-b border-sand">
+          <div className="grid grid-cols-2 py-3 px-6 bg-accent-muted/50 border-b border-sand">
             <p className="text-[10px] uppercase tracking-[0.18em] text-accent/70">
               Facility
             </p>
@@ -78,7 +78,7 @@ export default function Amenities() {
           {amenities.map((item, i) => (
             <div
               key={item.facility}
-              className={`grid grid-cols-2 py-4 px-6 hover:bg-mint transition-colors ${
+              className={`grid grid-cols-2 py-4 px-6 hover:bg-cream transition-colors ${
                 i < amenities.length - 1 ? "border-b border-sand/60" : ""
               }`}
             >

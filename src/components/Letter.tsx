@@ -8,7 +8,7 @@ export default function Letter() {
     <section className="relative py-20 lg:py-28 bg-cream overflow-hidden">
       <LeafDecor
         variant="branch"
-        className="top-10 -left-12 w-72 text-leaf opacity-[0.10]"
+        className="top-10 -left-12 w-72 text-accent opacity-[0.10]"
       />
       <LeafDecor
         variant="leaf"
@@ -21,7 +21,7 @@ export default function Letter() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-script text-leaf text-4xl lg:text-5xl leading-none mb-3"
+          className="font-script text-accent text-4xl lg:text-5xl leading-none mb-3"
         >
           Yours sincerely, Ardent...
         </motion.p>

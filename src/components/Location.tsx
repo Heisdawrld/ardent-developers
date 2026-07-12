@@ -80,7 +80,7 @@ export default function Location() {
     <section className="relative py-16 lg:py-24 bg-warm-gray overflow-hidden">
       <LeafDecor
         variant="landscape"
-        className="top-12 -right-12 w-72 text-leaf opacity-[0.06]"
+        className="top-12 -right-12 w-72 text-accent opacity-[0.10]"
       />
       <LeafDecor
         variant="leaf"
@@ -132,7 +132,7 @@ export default function Location() {
             className="lg:col-span-3 relative h-[360px] lg:h-[420px] rounded-2xl overflow-hidden border border-sand"
           >
             {/* Stylized map backdrop */}
-            <div className="absolute inset-0 bg-gradient-to-br from-aqua via-aqua-deep to-mint" />
+            <div className="absolute inset-0 bg-gradient-to-br from-beige-soft via-beige to-cream" />
 
             {/* Roads / network SVG */}
             <svg
@@ -143,13 +143,13 @@ export default function Location() {
               {/* Lagoon */}
               <path
                 d="M0 320 C 100 300, 180 350, 280 330 C 380 310, 460 360, 600 340 L600 420 L0 420 Z"
-                fill="#cdeede"
+                fill="#E8E0D2"
                 opacity="0.65"
               />
               {/* Expressway */}
               <path
                 d="M-20 180 C 120 170, 220 200, 320 180 C 420 160, 520 200, 640 170"
-                stroke="#0f2311"
+                stroke="#1A1A1A"
                 strokeWidth="6"
                 fill="none"
                 opacity="0.45"
@@ -157,7 +157,7 @@ export default function Location() {
               />
               <path
                 d="M-20 180 C 120 170, 220 200, 320 180 C 420 160, 520 200, 640 170"
-                stroke="#89cc27"
+                stroke="#B5543A"
                 strokeWidth="2"
                 fill="none"
                 strokeDasharray="10 8"
@@ -166,34 +166,34 @@ export default function Location() {
               {/* Cross road */}
               <path
                 d="M210 -10 C 200 100, 230 220, 220 430"
-                stroke="#0f2311"
+                stroke="#1A1A1A"
                 strokeWidth="3"
                 fill="none"
                 opacity="0.35"
               />
               {/* Pin: The Residences */}
               <g transform="translate(220 175)">
-                <circle r="14" fill="#0f2311" opacity="0.2" />
-                <circle r="7" fill="#0f2311" />
-                <circle r="3" fill="#89cc27" />
+                <circle r="14" fill="#1A1A1A" opacity="0.2" />
+                <circle r="7" fill="#1A1A1A" />
+                <circle r="3" fill="#B5543A" />
               </g>
               {/* Pin: Lekki Phase 1 */}
               <g transform="translate(380 130)">
-                <circle r="6" fill="#0f2311" opacity="0.5" />
+                <circle r="6" fill="#1A1A1A" opacity="0.5" />
               </g>
               {/* Pin: Airport */}
               <g transform="translate(70 90)">
-                <circle r="6" fill="#0f2311" opacity="0.5" />
+                <circle r="6" fill="#1A1A1A" opacity="0.5" />
               </g>
               {/* Pin: VI */}
               <g transform="translate(490 220)">
-                <circle r="6" fill="#0f2311" opacity="0.5" />
+                <circle r="6" fill="#1A1A1A" opacity="0.5" />
               </g>
               {/* Labels */}
               <text
                 x="220"
                 y="160"
-                fill="#0f2311"
+                fill="#1A1A1A"
                 fontSize="11"
                 fontWeight="600"
                 textAnchor="middle"
@@ -203,7 +203,7 @@ export default function Location() {
               <text
                 x="380"
                 y="120"
-                fill="#0f2311"
+                fill="#1A1A1A"
                 fontSize="10"
                 textAnchor="middle"
                 opacity="0.75"
@@ -213,7 +213,7 @@ export default function Location() {
               <text
                 x="70"
                 y="80"
-                fill="#0f2311"
+                fill="#1A1A1A"
                 fontSize="10"
                 textAnchor="middle"
                 opacity="0.75"
@@ -223,7 +223,7 @@ export default function Location() {
               <text
                 x="490"
                 y="240"
-                fill="#0f2311"
+                fill="#1A1A1A"
                 fontSize="10"
                 textAnchor="middle"
                 opacity="0.75"
@@ -233,7 +233,7 @@ export default function Location() {
               <text
                 x="500"
                 y="395"
-                fill="#0f2311"
+                fill="#1A1A1A"
                 fontSize="11"
                 fontStyle="italic"
                 opacity="0.65"
@@ -294,12 +294,12 @@ export default function Location() {
                 <span
                   className={`inline-flex px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
                     active.status === "Projection"
-                      ? "bg-pop/10 text-pop"
+                      ? "bg-accent-muted text-accent"
                       : active.status === "Funded"
-                      ? "bg-cream text-foreground/70"
+                      ? "bg-beige text-foreground/70"
                       : active.status === "Planned"
-                      ? "bg-lavender text-pop"
-                      : "bg-leaf-soft text-accent"
+                      ? "bg-accent-muted text-accent"
+                      : "bg-accent-muted text-accent"
                   }`}
                 >
                   {active.status}
@@ -322,7 +322,7 @@ export default function Location() {
                   initial={{ width: 0 }}
                   animate={{ width: `${active.progress}%` }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="h-full bg-leaf rounded-full"
+                  className="h-full bg-accent rounded-full"
                 />
               </div>
               </motion.div>
@@ -341,7 +341,7 @@ export default function Location() {
               transition={{ delay: i * 0.05 }}
               className="bg-white rounded-xl p-5 text-center border border-sand"
             >
-              <p className="text-2xl font-bold text-leaf mb-1">{d.time}</p>
+              <p className="text-2xl font-bold text-accent mb-1">{d.time}</p>
               <p className="text-[13px] text-foreground/50">{d.place}</p>
             </motion.div>
           ))}

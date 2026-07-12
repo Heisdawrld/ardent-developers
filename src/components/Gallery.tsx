@@ -8,7 +8,7 @@ export default function Gallery() {
     <section id="editorial" className="relative py-16 lg:py-24 bg-warm-gray overflow-hidden">
       <LeafDecor
         variant="branch"
-        className="top-10 -right-12 w-72 text-leaf opacity-[0.07]"
+        className="top-10 -right-12 w-72 text-accent opacity-[0.10]"
       />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
         <motion.p
@@ -16,7 +16,7 @@ export default function Gallery() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+          className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2 -ml-1"
         >
           gallery
         </motion.p>
@@ -65,12 +65,12 @@ export default function Gallery() {
               transition={{ delay: i * 0.03 }}
               className={`aspect-[4/3] rounded-lg flex items-center justify-center bg-gradient-to-br ${
                 i === 1
-                  ? "md:col-span-2 md:aspect-[8/3] from-aqua to-mint"
+                  ? "md:col-span-2 md:aspect-[8/3] from-beige-soft to-cream"
                   : i % 3 === 0
-                  ? "from-lavender to-rose"
+                  ? "from-beige to-accent-muted"
                   : i % 3 === 2
-                  ? "from-mint to-leaf-soft"
-                  : "from-aqua-deep to-mint"
+                  ? "from-cream to-accent-muted"
+                  : "from-beige to-cream"
               }`}
             >
               <p className="text-[11px] text-foreground/30 uppercase tracking-wider">
@@ -88,7 +88,7 @@ export default function Gallery() {
         >
           <a
             href="#register"
-            className="text-sm text-leaf font-semibold hover:underline"
+            className="text-sm text-accent font-semibold hover:underline"
           >
             Register for Updates &rarr;
           </a>

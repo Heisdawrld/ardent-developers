@@ -5,10 +5,10 @@ import LeafDecor from "./LeafDecor";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-20 lg:py-28 bg-mint overflow-hidden">
+    <section id="contact" className="relative py-20 lg:py-28 bg-cream overflow-hidden">
       <LeafDecor
         variant="drop"
-        className="top-12 right-8 w-16 text-leaf opacity-[0.18]"
+        className="top-12 right-8 w-16 text-accent opacity-[0.20]"
       />
       <LeafDecor
         variant="potted"
@@ -23,7 +23,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+              className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2 -ml-1"
             >
               contact
             </motion.p>
@@ -71,7 +71,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:hello@ardentdev.com"
-                  className="text-base font-semibold hover:text-leaf transition-colors"
+                  className="text-base font-semibold hover:text-accent transition-colors"
                 >
                   hello@ardentdev.com
                 </a>
@@ -82,7 +82,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="tel:+2348000000000"
-                  className="text-base font-semibold hover:text-leaf transition-colors"
+                  className="text-base font-semibold hover:text-accent transition-colors"
                 >
                   +234 800 000 0000
                 </a>
@@ -106,7 +106,7 @@ export default function Contact() {
                 href="https://wa.me/2348000000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3 bg-leaf text-foreground text-sm font-bold rounded-full hover:bg-leaf/90 transition-colors"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-accent text-white text-sm font-bold rounded-full hover:bg-accent-light transition-colors"
               >
                 <svg
                   className="w-4 h-4"
@@ -136,7 +136,7 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="John"
-                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-leaf transition-colors"
+                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-accent transition-colors"
                   />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="Doe"
-                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-leaf transition-colors"
+                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-accent transition-colors"
                   />
                 </div>
               </div>
@@ -177,12 +177,12 @@ export default function Contact() {
                 <textarea
                   rows={4}
                   placeholder="Tell us about your interest..."
-                  className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-leaf transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-accent transition-colors resize-none"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full py-3.5 bg-accent text-white text-sm font-bold rounded-full hover:bg-leaf hover:text-foreground transition-colors"
+                className="w-full py-3.5 bg-accent text-white text-sm font-bold rounded-full hover:bg-accent-light transition-colors"
               >
                 Send Message
               </button>
