@@ -84,7 +84,7 @@ export default function Letter() {
           className="mt-10"
         >
           <p className="text-base font-semibold">Ardent Owosho</p>
-          <p className="text-sm text-foreground/50">CEO, Ardent Developers</p>
+          <p className="text-sm text-foreground/50">Founder & CEO, Ardent Limited</p>
         </motion.div>
       </div>
     </section>

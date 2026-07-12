@@ -21,9 +21,9 @@ const arizonia = Arizonia({
 });
 
 export const metadata: Metadata = {
-  title: "Ardent Developers | Design-Led Real Estate",
+  title: "Ardent Limited | Redefining Modern Living",
   description:
-    "Building bold, design-led communities. Premium real estate developments crafted with intention.",
+    "Ardent Limited — a next-generation Lagos real estate development brand building bold, design-led communities.",
 };
 
 export default function RootLayout({

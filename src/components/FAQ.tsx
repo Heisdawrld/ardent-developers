@@ -6,7 +6,7 @@ import LeafDecor from "./LeafDecor";
 
 const faqs = [
   {
-    question: "What types of properties does Ardent Develop?",
+    question: "What types of properties does Ardent Limited develop?",
     answer:
       "We specialise in residential and mixed-use developments, focusing on design-led projects that prioritise climate responsiveness, natural light, and landscape integration.",
   },

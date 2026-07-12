@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#projects", label: "Projects" },
@@ -30,9 +31,20 @@ export default function Header() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-14 lg:h-16">
-          {/* Logo */}
-          <a href="#" className="text-base lg:text-lg font-bold tracking-tight">
-            ARDENT<span className="text-leaf">.</span>
+          {/* Logo — white silhouette over dark hero, full color (with multiply blend to drop white bg) on scrolled white header */}
+          <a href="#" className="flex items-center shrink-0">
+            <Image
+              src="/logo.jpg"
+              alt="Ardent Limited — Redefining Modern Living"
+              width={140}
+              height={40}
+              priority
+              className={`h-9 lg:h-10 w-auto transition-all duration-300 ${
+                scrolled
+                  ? "[mix-blend-mode:multiply]"
+                  : "[filter:brightness(0)_invert(1)] opacity-95"
+              }`}
+            />
           </a>
 
           {/* Desktop Nav */}
@@ -41,7 +53,11 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[13px] font-medium tracking-wide text-foreground/70 hover:text-foreground uppercase transition-colors"
+                className={`text-[13px] font-medium tracking-wide uppercase transition-colors ${
+                  scrolled
+                    ? "text-foreground/70 hover:text-foreground"
+                    : "text-white/80 hover:text-white"
+                }`}
               >
                 {link.label}
               </a>
@@ -52,13 +68,21 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="#contact"
-              className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-colors"
+              className={`text-[13px] font-medium transition-colors ${
+                scrolled
+                  ? "text-foreground/70 hover:text-foreground"
+                  : "text-white/80 hover:text-white"
+              }`}
             >
               Contact Us
             </a>
             <a
               href="#register"
-              className="px-5 py-2 bg-accent text-white text-[13px] font-medium rounded-full hover:bg-leaf hover:text-foreground transition-colors"
+              className={`px-5 py-2 text-[13px] font-medium rounded-full transition-colors ${
+                scrolled
+                  ? "bg-accent text-white hover:bg-leaf hover:text-foreground"
+                  : "bg-white text-foreground hover:bg-leaf"
+              }`}
             >
               Register Interest
             </a>
@@ -67,23 +91,23 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden flex flex-col gap-[5px] p-2"
+            className="lg:hidden flex flex-col gap-[5px] p-2 z-50"
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-5 h-[1.5px] bg-foreground transition-transform duration-200 ${
-                mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""
-              }`}
+              className={`block w-5 h-[1.5px] transition-all duration-200 ${
+                scrolled || mobileOpen ? "bg-foreground" : "bg-white"
+              } ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
             />
             <span
-              className={`block w-5 h-[1.5px] bg-foreground transition-opacity duration-200 ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
+              className={`block w-5 h-[1.5px] transition-all duration-200 ${
+                scrolled || mobileOpen ? "bg-foreground" : "bg-white"
+              } ${mobileOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-5 h-[1.5px] bg-foreground transition-transform duration-200 ${
-                mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""
-              }`}
+              className={`block w-5 h-[1.5px] transition-all duration-200 ${
+                scrolled || mobileOpen ? "bg-foreground" : "bg-white"
+              } ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
             />
           </button>
         </div>
@@ -96,6 +120,14 @@ export default function Header() {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
+          {/* Logo at top of mobile menu */}
+          <Image
+            src="/logo.jpg"
+            alt="Ardent Limited"
+            width={120}
+            height={40}
+            className="h-10 w-auto mb-4 [mix-blend-mode:multiply]"
+          />
           {navLinks.map((link) => (
             <a
               key={link.href}

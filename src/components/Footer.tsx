@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import LeafDecor from "./LeafDecor";
 
 export default function Footer() {
@@ -18,12 +19,18 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
           <div>
-            <h2 className="text-lg font-bold tracking-tight mb-2">
-              ARDENT<span className="text-leaf">.</span>
-            </h2>
+            {/* White-silhouette logo on dark footer */}
+            <Image
+              src="/logo.jpg"
+              alt="Ardent Limited — Redefining Modern Living"
+              width={160}
+              height={48}
+              className="h-11 w-auto mb-3 [filter:brightness(0)_invert(1)] opacity-90"
+            />
             <p className="text-background/40 text-[13px] max-w-xs leading-relaxed">
-              A next-generation real estate development brand. Building bold,
-              design-led communities and telling the stories behind them.
+              Redefining Modern Living. A next-generation real estate
+              development brand building bold, design-led communities across
+              Lagos.
             </p>
           </div>
 
@@ -46,15 +53,26 @@ export default function Footer() {
         {/* Middle row */}
         <div className="mt-10 pt-8 border-t border-background/10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex items-center gap-6">
-            {["Instagram", "YouTube", "Facebook"].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="text-[13px] text-background/40 hover:text-background transition-colors"
-              >
-                {social}
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/ardentdevelopers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] text-background/40 hover:text-leaf transition-colors"
+            >
+              Instagram
+            </a>
+            <a
+              href="#"
+              className="text-[13px] text-background/40 hover:text-background transition-colors"
+            >
+              YouTube
+            </a>
+            <a
+              href="#"
+              className="text-[13px] text-background/40 hover:text-background transition-colors"
+            >
+              Facebook
+            </a>
           </div>
 
           <div className="text-[13px] text-background/40 space-y-1">
@@ -77,7 +95,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-8 pt-6 border-t border-background/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-background/30">
-            &copy; {new Date().getFullYear()} Ardent Developers. All rights
+            &copy; {new Date().getFullYear()} Ardent Limited. All rights
             reserved.
           </p>
           <a
