@@ -62,7 +62,7 @@ export default function Location() {
           transition={{ delay: 0.1 }}
           className="text-foreground/60 text-[15px] leading-relaxed max-w-2xl mb-10"
         >
-          Lekki is one of Lagos's fastest-growing corridors, with premium
+          Lekki is one of Lagos&apos;s fastest-growing corridors, with premium
           infrastructure, new road networks, and world-class developments
           reshaping the landscape. Close to the action, but removed from the
           chaos.
