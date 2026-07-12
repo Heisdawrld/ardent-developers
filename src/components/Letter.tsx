@@ -1,29 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LeafDecor from "./LeafDecor";
 
 export default function Letter() {
   return (
-    <section className="py-20 lg:py-28 bg-cream">
-      <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+    <section className="relative py-20 lg:py-28 bg-cream overflow-hidden">
+      <LeafDecor
+        variant="branch"
+        className="top-10 -left-12 w-72 text-leaf opacity-[0.10]"
+      />
+      <LeafDecor
+        variant="leaf"
+        flip
+        className="bottom-10 -right-8 w-44 text-accent opacity-[0.06]"
+      />
+      <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2"
+          transition={{ duration: 0.6 }}
+          className="font-script text-leaf text-4xl lg:text-5xl leading-none mb-3"
         >
           Yours sincerely, Ardent...
         </motion.p>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.p
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
+          transition={{ delay: 0.05, duration: 0.6 }}
+          className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2"
+        >
+          Our Letter to You
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.6 }}
           className="text-3xl lg:text-4xl font-bold tracking-tight mb-10"
         >
-          Our Letter to You:
-          <br />
           Your Journey Starts Now.
         </motion.h2>
 

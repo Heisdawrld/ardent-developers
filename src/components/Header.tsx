@@ -32,7 +32,7 @@ export default function Header() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-14 lg:h-16">
           {/* Logo */}
           <a href="#" className="text-base lg:text-lg font-bold tracking-tight">
-            ARDENT<span className="text-accent">.</span>
+            ARDENT<span className="text-leaf">.</span>
           </a>
 
           {/* Desktop Nav */}
@@ -58,7 +58,7 @@ export default function Header() {
             </a>
             <a
               href="#register"
-              className="px-5 py-2 bg-accent text-white text-[13px] font-medium rounded-full hover:bg-accent-light transition-colors"
+              className="px-5 py-2 bg-accent text-white text-[13px] font-medium rounded-full hover:bg-leaf hover:text-foreground transition-colors"
             >
               Register Interest
             </a>

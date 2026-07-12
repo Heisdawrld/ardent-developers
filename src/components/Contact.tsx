@@ -1,38 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LeafDecor from "./LeafDecor";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-cream">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section id="contact" className="relative py-20 lg:py-28 bg-mint overflow-hidden">
+      <LeafDecor
+        variant="drop"
+        className="top-12 right-8 w-16 text-leaf opacity-[0.18]"
+      />
+      <LeafDecor
+        variant="potted"
+        className="bottom-12 -left-10 w-32 text-accent opacity-[0.08]"
+      />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left */}
           <div>
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2"
+              transition={{ duration: 0.6 }}
+              className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+            >
+              contact
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.05, duration: 0.6 }}
+              className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2 mt-2"
             >
               Contact
             </motion.p>
 
             <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
               className="text-3xl lg:text-4xl font-bold tracking-tight mb-10"
             >
               Interested in The Residences?
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
               className="text-foreground/60 text-[15px] leading-relaxed mb-10"
             >
               Register your interest to receive project updates, pricing, and
@@ -52,7 +71,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:hello@ardentdev.com"
-                  className="text-base font-medium hover:text-accent transition-colors"
+                  className="text-base font-semibold hover:text-leaf transition-colors"
                 >
                   hello@ardentdev.com
                 </a>
@@ -63,7 +82,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="tel:+2348000000000"
-                  className="text-base font-medium hover:text-accent transition-colors"
+                  className="text-base font-semibold hover:text-leaf transition-colors"
                 >
                   +234 800 000 0000
                 </a>
@@ -87,7 +106,7 @@ export default function Contact() {
                 href="https://wa.me/2348000000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3 bg-green-600 text-white text-sm font-medium rounded-full hover:bg-green-700 transition-colors"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-leaf text-foreground text-sm font-bold rounded-full hover:bg-leaf/90 transition-colors"
               >
                 <svg
                   className="w-4 h-4"
@@ -103,8 +122,8 @@ export default function Contact() {
 
           {/* Right — Form */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
@@ -117,7 +136,7 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="John"
-                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-leaf transition-colors"
                   />
                 </div>
                 <div>
@@ -127,7 +146,7 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="Doe"
-                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-leaf transition-colors"
                   />
                 </div>
               </div>
@@ -158,12 +177,12 @@ export default function Contact() {
                 <textarea
                   rows={4}
                   placeholder="Tell us about your interest..."
-                  className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white border border-sand rounded-xl text-sm focus:outline-none focus:border-leaf transition-colors resize-none"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full py-3.5 bg-accent text-white text-sm font-medium rounded-full hover:bg-accent-light transition-colors"
+                className="w-full py-3.5 bg-accent text-white text-sm font-bold rounded-full hover:bg-leaf hover:text-foreground transition-colors"
               >
                 Send Message
               </button>

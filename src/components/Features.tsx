@@ -45,38 +45,52 @@ const features = [
 export default function Features() {
   return (
     <section className="relative py-20 lg:py-28 bg-accent overflow-hidden">
-      <LeafDecor className="top-10 -left-10 w-48 text-white opacity-[0.05]" />
       <LeafDecor
-        className="bottom-10 -right-10 w-56 text-white opacity-[0.04]"
+        variant="monstera"
+        className="top-10 -left-10 w-56 text-white opacity-[0.06]"
+      />
+      <LeafDecor
+        variant="branch"
         flip
+        className="bottom-10 -right-10 w-64 text-leaf opacity-[0.18]"
       />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="max-w-2xl mb-14">
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-white/50 text-[11px] uppercase tracking-[0.15em] mb-2"
+            transition={{ duration: 0.6 }}
+            className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+          >
+            ecosystem
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05, duration: 0.6 }}
+            className="text-leaf/80 text-[11px] uppercase tracking-[0.18em] mb-2 mt-2"
           >
             Our Ecosystem
           </motion.p>
 
           <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.05 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4"
           >
             Designed for modern living
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
             className="text-white/60 text-[15px] leading-relaxed"
           >
             We foster an ecosystem where design and community thrive together.
@@ -95,7 +109,7 @@ export default function Features() {
               transition={{ delay: i * 0.06 }}
               className="group bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/[0.12] transition-colors"
             >
-              <p className="text-white/30 text-3xl font-bold mb-4">
+              <p className="text-leaf text-3xl font-bold mb-4">
                 {feat.number}
               </p>
               <h3 className="text-white text-base font-semibold mb-2">

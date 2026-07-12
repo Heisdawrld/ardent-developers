@@ -7,22 +7,42 @@ export default function Register() {
   return (
     <section
       id="register"
-      className="relative py-20 lg:py-28 bg-white overflow-hidden"
+      className="relative py-20 lg:py-28 bg-mint overflow-hidden"
     >
-      <LeafDecor className="top-0 right-10 w-40 text-accent opacity-[0.05]" />
+      <LeafDecor
+        variant="monstera"
+        className="top-0 right-10 w-48 text-leaf opacity-[0.08]"
+      />
+      <LeafDecor
+        variant="leaf"
+        flip
+        className="bottom-0 -left-8 w-44 text-accent opacity-[0.06]"
+      />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
+        <motion.p
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-6 -ml-1"
+        >
+          register now
+        </motion.p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left - Pricing / CTA Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="bg-accent rounded-2xl p-8 lg:p-10 text-white relative overflow-hidden"
           >
-            <LeafDecor className="-top-4 -right-4 w-32 text-white opacity-[0.08]" />
+            <LeafDecor
+              variant="leaf"
+              className="-top-4 -right-4 w-32 text-white opacity-[0.1]"
+            />
 
-            <p className="text-white/50 text-[11px] uppercase tracking-[0.15em] mb-1">
+            <p className="text-leaf text-[11px] uppercase tracking-[0.18em] mb-1">
               Launch Phase
             </p>
             <h3 className="text-2xl lg:text-3xl font-bold mb-6">
@@ -56,13 +76,13 @@ export default function Register() {
             </div>
 
             <div className="flex items-baseline gap-2 mb-8">
-              <p className="text-3xl font-bold">From</p>
-              <p className="text-4xl font-bold">₦45M</p>
+              <p className="text-2xl font-medium text-white/70">From</p>
+              <p className="text-5xl font-bold text-leaf">₦45M</p>
             </div>
 
             <a
               href="#contact"
-              className="block w-full py-3.5 bg-white text-accent text-sm font-semibold rounded-full text-center hover:bg-white/90 transition-colors"
+              className="block w-full py-3.5 bg-leaf text-foreground text-sm font-bold rounded-full text-center hover:bg-leaf/90 transition-colors"
             >
               Grab the Offer
             </a>
@@ -70,8 +90,8 @@ export default function Register() {
 
           {/* Right - Brochure Download */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
@@ -91,7 +111,7 @@ export default function Register() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <svg
-                    className="w-4 h-4 text-accent mt-0.5 shrink-0"
+                    className="w-4 h-4 text-leaf mt-0.5 shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -117,9 +137,9 @@ export default function Register() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 px-5 py-3.5 bg-cream border border-sand rounded-full text-sm focus:outline-none focus:border-accent transition-colors"
+                className="flex-1 px-5 py-3.5 bg-white border border-sand rounded-full text-sm focus:outline-none focus:border-leaf transition-colors"
               />
-              <button className="px-8 py-3.5 bg-accent text-white text-sm font-medium rounded-full hover:bg-accent-light transition-colors whitespace-nowrap">
+              <button className="px-8 py-3.5 bg-accent text-white text-sm font-semibold rounded-full hover:bg-leaf hover:text-foreground transition-colors whitespace-nowrap">
                 Download Now
               </button>
             </div>

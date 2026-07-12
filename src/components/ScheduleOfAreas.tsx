@@ -39,19 +39,20 @@ export default function ScheduleOfAreas() {
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2"
+          transition={{ duration: 0.6 }}
+          className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
         >
-          Schedule of Areas
+          residences
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
+          transition={{ delay: 0.05, duration: 0.6 }}
           className="text-3xl lg:text-4xl font-bold tracking-tight mb-12"
         >
           Three typologies, one standard
@@ -73,7 +74,7 @@ export default function ScheduleOfAreas() {
                   <h3 className="text-lg font-semibold mb-1">{unit.type}</h3>
                   <p className="text-[13px] text-foreground/40">{unit.block}</p>
                 </div>
-                <span className="inline-flex px-3 py-1 bg-accent-muted text-accent text-[11px] font-medium rounded-full w-fit">
+                <span className="inline-flex px-3 py-1 bg-leaf-soft text-accent text-[11px] font-semibold rounded-full w-fit">
                   {unit.status}
                 </span>
               </div>

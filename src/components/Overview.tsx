@@ -17,20 +17,30 @@ export default function Overview() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         {/* Overview */}
         <div className="max-w-3xl mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.p
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+          >
+            overview
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05, duration: 0.6 }}
             className="text-3xl lg:text-4xl font-bold tracking-tight mb-6"
           >
             The standard for urban living in Lagos
           </motion.h2>
 
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="text-foreground/60 text-[15px] leading-[1.8] space-y-4"
           >
             <p>
@@ -72,8 +82,8 @@ export default function Overview() {
           viewport={{ once: true }}
           className="mt-10 flex gap-6"
         >
-          <span className="text-sm text-foreground/40">Brochure Coming Soon</span>
-          <span className="text-sm text-foreground/40">
+          <span className="text-sm text-foreground/40 border border-sand rounded-full px-4 py-1.5">Brochure Coming Soon</span>
+          <span className="text-sm text-foreground/40 border border-sand rounded-full px-4 py-1.5">
             Floor Plans Coming Soon
           </span>
         </motion.div>

@@ -1,14 +1,24 @@
 @import "tailwindcss";
 
 :root {
+  /* ===== Habitat-style palette ===== */
   --background: #ffffff;
-  --foreground: #1a1a1a;
-  --accent: #2d5a1e;
-  --accent-light: #3d7a2a;
-  --accent-muted: #e8f0e4;
-  --cream: #f8f6f1;
-  --sand: #e5e0d5;
-  --warm-gray: #f5f3ef;
+  --foreground: #0f2311; /* deep forest, almost black-green */
+  --accent: #0f2311; /* deep forest */
+  --accent-light: #1b3d1f; /* slightly lifted forest for hovers */
+  --accent-muted: #eff5e5; /* pale mint chip background */
+  --leaf: #89cc27; /* vibrant leaf green — the pop */
+  --leaf-soft: #d1f2d4; /* soft mint pastel */
+  --mint: #f7ffeb; /* paper mint */
+  --aqua: #eafdfc; /* near-white aqua */
+  --aqua-deep: #dafffe; /* deeper aqua pastel */
+  --lavender: #efe7fa; /* lavender pastel */
+  --lavender-deep: #e9b4e8; /* pink pastel */
+  --cream: #fffed4; /* warm pale yellow */
+  --sand: #e5e0d5; /* keep neutral border */
+  --warm-gray: #f6f6f6; /* near-white section bg */
+  --pop: #8a38f5; /* purple pop */
+  --rose: #fcefef; /* pale rose */
 }
 
 @theme inline {
@@ -17,19 +27,58 @@
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-muted: var(--accent-muted);
+  --color-leaf: var(--leaf);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-mint: var(--mint);
+  --color-aqua: var(--aqua);
+  --color-aqua-deep: var(--aqua-deep);
+  --color-lavender: var(--lavender);
+  --color-lavender-deep: var(--lavender-deep);
   --color-cream: var(--cream);
   --color-sand: var(--sand);
   --color-warm-gray: var(--warm-gray);
+  --color-pop: var(--pop);
+  --color-rose: var(--rose);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-script: var(--font-arizonia);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ===== Lenis smooth scroll base ===== */
+html.lenis,
+html.lenis body {
+  height: auto;
 }
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ===== Utilities ===== */
+.font-script {
+  font-family: var(--font-script), cursive;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Editorial horizontal slide-in (Habitat signature) — applied via framer-motion equivalents */

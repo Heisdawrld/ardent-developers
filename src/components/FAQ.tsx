@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import LeafDecor from "./LeafDecor";
 
 const faqs = [
   {
@@ -35,22 +36,41 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-3xl mx-auto px-6 lg:px-10">
+    <section id="faq" className="relative py-20 lg:py-28 bg-white overflow-hidden">
+      <LeafDecor
+        variant="leaf"
+        className="top-12 -left-8 w-32 text-leaf opacity-[0.10]"
+      />
+      <LeafDecor
+        variant="leaf"
+        flip
+        className="bottom-12 -right-8 w-32 text-leaf opacity-[0.10]"
+      />
+      <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">
         <div className="text-center mb-14">
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2"
+            transition={{ duration: 0.6 }}
+            className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2"
+          >
+            faq
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05, duration: 0.6 }}
+            className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2 mt-2"
           >
             FAQ
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.05 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="text-3xl lg:text-4xl font-bold tracking-tight"
           >
             Some frequently asked questions
@@ -74,17 +94,17 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.04 }}
-              className="border border-sand rounded-xl overflow-hidden"
+              className="border border-sand rounded-xl overflow-hidden hover:border-leaf/50 transition-colors"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left hover:bg-mint/40 transition-colors"
               >
                 <span className="text-sm font-medium pr-4">
                   {faq.question}
                 </span>
                 <svg
-                  className={`w-4 h-4 text-foreground/30 shrink-0 transition-transform duration-200 ${
+                  className={`w-4 h-4 text-leaf shrink-0 transition-transform duration-200 ${
                     openIndex === i ? "rotate-180" : ""
                   }`}
                   fill="none"

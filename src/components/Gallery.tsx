@@ -1,25 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LeafDecor from "./LeafDecor";
 
 export default function Gallery() {
   return (
-    <section id="editorial" className="py-16 lg:py-24 bg-warm-gray">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section id="editorial" className="relative py-16 lg:py-24 bg-warm-gray overflow-hidden">
+      <LeafDecor
+        variant="branch"
+        className="top-10 -right-12 w-72 text-leaf opacity-[0.07]"
+      />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2"
+          transition={{ duration: 0.6 }}
+          className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+        >
+          gallery
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.05, duration: 0.6 }}
+          className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2 mt-2"
         >
           Gallery
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
           className="text-3xl lg:text-4xl font-bold tracking-tight mb-3"
         >
           Project Imagery
@@ -48,11 +63,17 @@ export default function Gallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.03 }}
-              className={`aspect-[4/3] bg-sand/60 rounded-lg flex items-center justify-center ${
-                i === 1 ? "md:col-span-2 md:aspect-[8/3]" : ""
+              className={`aspect-[4/3] rounded-lg flex items-center justify-center bg-gradient-to-br ${
+                i === 1
+                  ? "md:col-span-2 md:aspect-[8/3] from-aqua to-mint"
+                  : i % 3 === 0
+                  ? "from-lavender to-rose"
+                  : i % 3 === 2
+                  ? "from-mint to-leaf-soft"
+                  : "from-aqua-deep to-mint"
               }`}
             >
-              <p className="text-[11px] text-foreground/25 uppercase tracking-wider">
+              <p className="text-[11px] text-foreground/30 uppercase tracking-wider">
                 Image {i}
               </p>
             </motion.div>
@@ -67,7 +88,7 @@ export default function Gallery() {
         >
           <a
             href="#register"
-            className="text-sm text-accent font-medium hover:underline"
+            className="text-sm text-leaf font-semibold hover:underline"
           >
             Register for Updates &rarr;
           </a>

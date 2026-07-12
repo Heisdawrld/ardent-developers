@@ -1,12 +1,25 @@
+"use client";
+
+import LeafDecor from "./LeafDecor";
+
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-14 lg:py-16">
+    <footer className="relative bg-foreground text-background overflow-hidden">
+      <LeafDecor
+        variant="leaf"
+        className="top-8 -left-6 w-32 text-leaf opacity-[0.10]"
+      />
+      <LeafDecor
+        variant="leaf"
+        flip
+        className="top-8 -right-6 w-32 text-leaf opacity-[0.10]"
+      />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 py-14 lg:py-16">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Brand */}
           <div>
             <h2 className="text-lg font-bold tracking-tight mb-2">
-              ARDENT<span className="text-accent-light">.</span>
+              ARDENT<span className="text-leaf">.</span>
             </h2>
             <p className="text-background/40 text-[13px] max-w-xs leading-relaxed">
               A next-generation real estate development brand. Building bold,

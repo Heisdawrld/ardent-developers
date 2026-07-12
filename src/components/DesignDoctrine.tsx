@@ -32,10 +32,14 @@ const features = [
 export default function DesignDoctrine() {
   return (
     <section className="relative py-20 lg:py-32 bg-white overflow-hidden">
-      <LeafDecor className="top-0 right-0 w-48 lg:w-64 text-accent opacity-[0.06]" />
       <LeafDecor
-        className="bottom-0 left-0 w-40 lg:w-56 text-accent opacity-[0.04]"
+        variant="monstera"
+        className="top-0 right-0 w-56 lg:w-72 text-leaf opacity-[0.08]"
+      />
+      <LeafDecor
+        variant="leaf"
         flip
+        className="bottom-0 left-0 w-44 lg:w-60 text-accent opacity-[0.05]"
       />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -43,19 +47,29 @@ export default function DesignDoctrine() {
           {/* Left */}
           <div>
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2"
+              transition={{ duration: 0.6 }}
+              className="font-script text-leaf text-3xl lg:text-4xl leading-none mb-2 -ml-1"
+            >
+              doctrine
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.05, duration: 0.6 }}
+              className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2 mt-2"
             >
               Design Doctrine
             </motion.p>
 
             <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -22 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
               className="text-3xl lg:text-4xl font-bold tracking-tight mb-12"
             >
               Airflow. Light. Landscape.
@@ -70,7 +84,7 @@ export default function DesignDoctrine() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 + i * 0.08 }}
                 >
-                  <p className="text-accent text-sm font-semibold lowercase tracking-wide mb-1">
+                  <p className="text-leaf text-sm font-semibold lowercase tracking-wide mb-1">
                     {p.word}
                   </p>
                   <p className="text-[15px] text-foreground/60 leading-relaxed">
