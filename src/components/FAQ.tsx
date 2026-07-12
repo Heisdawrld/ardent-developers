@@ -1,143 +1,143 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeafDecor from "./LeafDecor";
 
-const faqs = [
+const FAQS = [
   {
-    question: "What types of properties does Ardent Limited develop?",
-    answer:
-      "We specialise in residential and mixed-use developments, focusing on design-led projects that prioritise climate responsiveness, natural light, and landscape integration.",
+    q: "How long until the estate is fully developed?",
+    a: "Phase 1 (25 acres) is underway now, with first handovers expected by Q4 2027. Full community live — including the farmers&rsquo; market and commercial avenue — is targeted for 2028, in step with the Lekki Deep Seaport access road completion.",
   },
   {
-    question: "Where are your projects located?",
-    answer:
-      "Our current portfolio is focused on prime locations across Lagos, Nigeria — including Ikoyi, Lekki, and Epe. We selectively choose sites with strong infrastructure and long-term growth potential.",
+    q: "Can I build my own home on the plot?",
+    a: "Yes, you can. Our construction team also provides advisory and construction support, and you&rsquo;re free to use your own architect and builder — subject to the estate&rsquo;s design guidelines to protect everyone&rsquo;s investment.",
   },
   {
-    question: "How can I register interest in a project?",
-    answer:
-      "You can register interest through our website by submitting your email address, or by contacting us directly via WhatsApp or our contact form. We'll keep you updated on pricing, availability, and exclusive access.",
+    q: "What happens after I reserve a plot?",
+    a: "After you fill and submit the subscription form, you&rsquo;ll get a Receipt of Payment, followed by your Allocation Letter. Survey documents and title perfection follow on a clear schedule tied to your payment plan.",
   },
   {
-    question: "Do you offer payment plans?",
-    answer:
-      "Yes, we offer flexible payment plans tailored to each project. Specific details are shared with registered interested parties once pricing is released.",
+    q: "What&rsquo;s included in the estate besides plots?",
+    a: "We are developing 90 acres of vegetables and ephemeral fast-moving crops alongside the residential plots — plus a 10-acre farmers&rsquo; market, central water system, perimeter fencing, intelligent drainage, and beautified landscaping.",
   },
   {
-    question: "When will your projects be completed?",
-    answer:
-      "Completion timelines vary by project. Our current developments are in pre-construction or planning phases, with expected delivery dates shared upon registration.",
+    q: "Are there additional fees beyond the plot price?",
+    a: "Yes — payment for Survey documents and title perfection when due. These are statutory and infrastructure-related; we&rsquo;ll give you a clear schedule before you commit.",
+  },
+  {
+    q: "What&rsquo;s the title on the land?",
+    a: "The estate carries a Certificate of Occupancy (C of O). Each plot buyer receives a registered Survey Plan and Deed of Assignment as part of the documentation package.",
   },
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
-    <section id="faq" className="relative py-20 lg:py-28 bg-white overflow-hidden">
-      <LeafDecor
-        variant="leaf"
-        className="top-12 -left-8 w-32 text-accent opacity-[0.10]"
-      />
-      <LeafDecor
-        variant="leaf"
-        flip
-        className="bottom-12 -right-8 w-32 text-accent opacity-[0.10]"
-      />
-      <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-14">
-          <motion.p
-            initial={{ opacity: 0, x: -22 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-script text-accent text-3xl lg:text-4xl leading-none mb-2"
-          >
-            faq
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, x: -22 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05, duration: 0.6 }}
-            className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2 mt-2"
-          >
-            FAQ
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, x: -22 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-3xl lg:text-4xl font-bold tracking-tight"
-          >
-            Some frequently asked questions
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-3 text-foreground/50 text-sm"
-          >
-            We answered them so you don&apos;t have to ask.
-          </motion.p>
-        </div>
+    <section
+      id="faqs"
+      className="w-full relative"
+      style={{ padding: "220px 0 0" }}
+    >
+      {/* Side leaf decorations (Habitat pattern — img-leaf absolute positioned) */}
+      <div
+        className="absolute top-0 left-0 right-0 hidden md:flex justify-between z-0 pointer-events-none"
+        style={{ height: 382 }}
+      >
+        <LeafDecor
+          variant="leaf"
+          className="text-gold opacity-90"
+          style={{ width: 197, height: "auto" }}
+        />
+        <LeafDecor
+          variant="leaf"
+          flip
+          className="text-gold opacity-90"
+          style={{ width: 197, height: "auto" }}
+        />
+      </div>
 
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
+      <div className="max-w-[1400px] mx-auto relative z-10">
+        {/* Head container — Habitat pattern (centered intro) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto text-center mb-16"
+          style={{ maxWidth: 880, padding: "0 30px" }}
+        >
+          <h3
+            className="text-ink font-semibold mb-4"
+            style={{
+              fontSize: "clamp(20px, 2.5vw, 34px)",
+              lineHeight: 1.2,
+              letterSpacing: "0.4px",
+            }}
+          >
+            Some frequently asked questions about our project. We answered
+            them so you don&rsquo;t have to ask.
+          </h3>
+          <p
+            className="text-muted"
+            style={{ fontSize: "clamp(13px, 1vw, 16px)" }}
+          >
+            Still have questions? WhatsApp us anytime.
+          </p>
+        </motion.div>
+
+        {/* FAQ list — Habitat faqs container (flex column, gap 25px, padding 0 30px) */}
+        <div
+          className="flex flex-col"
+          style={{ gap: 25, padding: "0 30px" }}
+        >
+          {FAQS.map((faq, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              className="border border-sand rounded-xl overflow-hidden hover:border-accent/50 transition-colors"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="p-6 md:p-8"
+              style={{
+                background: "var(--cream)",
+                borderRadius: 24,
+                border: "1px solid var(--line)",
+              }}
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-cream/40 transition-colors"
+              <h4
+                className="text-ink font-semibold mb-3"
+                style={{
+                  fontSize: "clamp(15px, 1.4vw, 22px)",
+                  lineHeight: 1.3,
+                  letterSpacing: "-0.26px",
+                }}
               >
-                <span className="text-sm font-medium pr-4">
-                  {faq.question}
-                </span>
-                <svg
-                  className={`w-4 h-4 text-accent shrink-0 transition-transform duration-200 ${
-                    openIndex === i ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <AnimatePresence>
-                {openIndex === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-5 pb-5 text-sm text-foreground/55 leading-relaxed border-t border-sand/60 pt-4">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                {faq.q}
+              </h4>
+              <p
+                className="text-body"
+                style={{
+                  fontSize: "clamp(13px, 1.1vw, 17px)",
+                  lineHeight: "22px",
+                  maxWidth: 900,
+                }}
+                dangerouslySetInnerHTML={{ __html: faq.a }}
+              />
             </motion.div>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 767px) {
+          section {
+            padding: 100px 0 0 !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

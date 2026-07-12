@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Arizonia } from "next/font/google";
+import { Plus_Jakarta_Sans, Arizonia } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const arizonia = Arizonia({
@@ -24,6 +21,12 @@ export const metadata: Metadata = {
   title: "Ardent Limited | Redefining Modern Living",
   description:
     "Ardent Limited — a next-generation Lagos real estate development brand building bold, design-led communities.",
+  openGraph: {
+    title: "Ardent Limited | Redefining Modern Living",
+    description:
+      "Ardent Limited — a next-generation Lagos real estate development brand building bold, design-led communities.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -34,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${arizonia.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${arizonia.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-cream text-body font-sans">
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>

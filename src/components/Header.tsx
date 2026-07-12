@@ -1,14 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import Link from "next/link";
 
-const navLinks = [
-  { href: "#projects", label: "Projects" },
-  { href: "#about", label: "About" },
-  { href: "#editorial", label: "Editorial" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+const NAV_LINKS = [
+  { label: "Overview", href: "#overview" },
+  { label: "Amenities", href: "#amenities" },
+  { label: "Location", href: "#location" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQs", href: "#faqs" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -16,137 +17,187 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 100);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
-        }`}
+      {/* ============ STICKY FLOATING PILL NAV (Habitat pattern) ============ */}
+      <div
+        className="sticky z-[1000] hidden md:flex"
+        style={{ top: 20 }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-14 lg:h-16">
-          {/* Logo — white silhouette over dark hero, full color (with multiply blend to drop white bg) on scrolled white header */}
-          <a href="#" className="flex items-center shrink-0">
-            <Image
+        <div
+          className="w-full mx-auto flex items-center justify-between"
+          style={{
+            padding: "0 60px",
+            height: 50,
+          }}
+        >
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3">
+            <img
               src="/logo.png"
-              alt="Ardent Limited — Redefining Modern Living"
-              width={140}
+              alt="Ardent Limited"
+              width={30}
               height={40}
-              priority
-              className={`h-9 lg:h-10 w-auto transition-all duration-300 ${
-                scrolled
-                  ? "[mix-blend-mode:multiply]"
-                  : "[filter:brightness(0)_invert(1)] opacity-95"
-              }`}
+              className="h-[40px] w-auto"
+              style={{ objectFit: "contain" }}
             />
-          </a>
+          </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <a
+          {/* Nav pill container */}
+          <div
+            className="flex items-center gap-2"
+            style={{
+              background: "var(--cream)",
+              padding: 5,
+              borderRadius: 50,
+            }}
+          >
+            {NAV_LINKS.map((link) => (
+              <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] font-medium tracking-wide uppercase transition-colors ${
-                  scrolled
-                    ? "text-foreground/70 hover:text-foreground"
-                    : "text-white/80 hover:text-white"
-                }`}
+                className="px-4 py-1.5 text-[15px] font-medium text-black hover:text-gold transition-colors"
+                style={{ letterSpacing: "-0.23px" }}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-          </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+            {/* Download Brochure pill button */}
             <a
-              href="#contact"
-              className={`text-[13px] font-medium transition-colors ${
-                scrolled
-                  ? "text-foreground/70 hover:text-foreground"
-                  : "text-white/80 hover:text-white"
-              }`}
+              href="#pricing"
+              className="btn-pill"
+              style={{ height: 40 }}
             >
-              Contact Us
-            </a>
-            <a
-              href="#register"
-              className={`px-5 py-2 text-[13px] font-medium rounded-full transition-colors ${
-                scrolled
-                  ? "bg-accent text-white hover:bg-accent-light"
-                  : "bg-white text-foreground hover:bg-accent-muted"
-              }`}
-            >
-              Register Interest
+              <span className="btn-txt">Download Brochure</span>
+              <span className="btn-round" style={{ width: 24, height: 24 }}>
+                <svg
+                  className="arrow arrow-primary"
+                  viewBox="0 0 12 13"
+                  width="12"
+                  height="13"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.99262 12.5303C5.28551 12.8232 5.76039 12.8232 6.05328 12.5303L10.8263 7.75736C11.1191 7.46447 11.1191 6.98959 10.8263 6.6967C10.5334 6.4038 10.0585 6.4038 9.76559 6.6967L5.52295 10.9393L1.28031 6.6967C0.987416 6.40381 0.512543 6.40381 0.219649 6.6967C-0.0732439 6.98959 -0.0732438 7.46447 0.21965 7.75736L4.99262 12.5303ZM5.52295 0L4.77295 1.22392e-07L4.77295 12L5.52295 12L6.27295 12L6.27295 -1.22392e-07L5.52295 0Z"
+                    fill="#0A0A0A"
+                  />
+                </svg>
+                <svg
+                  className="arrow arrow-secondary"
+                  viewBox="0 0 12 13"
+                  width="12"
+                  height="13"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.99262 12.5303C5.28551 12.8232 5.76039 12.8232 6.05328 12.5303L10.8263 7.75736C11.1191 7.46447 11.1191 6.98959 10.8263 6.6967C10.5334 6.4038 10.0585 6.4038 9.76559 6.6967L5.52295 10.9393L1.28031 6.6967C0.987416 6.40381 0.512543 6.40381 0.219649 6.6967C-0.0732439 6.98959 -0.0732438 7.46447 0.21965 7.75736L4.99262 12.5303ZM5.52295 0L4.77295 1.22392e-07L4.77295 12L5.52295 12L6.27295 12L6.27295 -1.22392e-07L5.52295 0Z"
+                    fill="#0A0A0A"
+                  />
+                </svg>
+              </span>
             </a>
           </div>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden flex flex-col gap-[5px] p-2 z-50"
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-5 h-[1.5px] transition-all duration-200 ${
-                scrolled || mobileOpen ? "bg-foreground" : "bg-white"
-              } ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
-            />
-            <span
-              className={`block w-5 h-[1.5px] transition-all duration-200 ${
-                scrolled || mobileOpen ? "bg-foreground" : "bg-white"
-              } ${mobileOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block w-5 h-[1.5px] transition-all duration-200 ${
-                scrolled || mobileOpen ? "bg-foreground" : "bg-white"
-              } ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
-            />
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 z-40 bg-white transition-all duration-300 lg:hidden ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {/* Logo at top of mobile menu */}
-          <Image
-            src="/logo.png"
-            alt="Ardent Limited"
-            width={120}
-            height={40}
-            className="h-10 w-auto mb-4 [mix-blend-mode:multiply]"
-          />
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-2xl font-medium text-foreground/80 hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#register"
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 px-8 py-3 bg-accent text-white text-sm font-medium rounded-full"
-          >
-            Register Interest
-          </a>
         </div>
       </div>
+
+      {/* ============ MOBILE HEADER (logo + hamburger) ============ */}
+      <div
+        className="sticky z-[1000] md:hidden flex items-center justify-between"
+        style={{ top: 10, padding: "0 30px", height: 50 }}
+      >
+        <Link href="/" className="flex items-center gap-2">
+          <img
+            src="/logo.png"
+            alt="Ardent Limited"
+            className="h-[34px] w-auto"
+            style={{ objectFit: "contain" }}
+          />
+        </Link>
+        <button
+          aria-label="Open menu"
+          onClick={() => setMobileOpen(true)}
+          className="w-10 h-10 flex items-center justify-center"
+        >
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+            <path
+              d="M1 1H19M1 7H19M1 13H19"
+              stroke="#0A0A0A"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* ============ MOBILE MENU OVERLAY ============ */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-[2000] md:hidden"
+          style={{ background: "var(--cream)" }}
+        >
+          <div className="flex items-center justify-between px-[30px] h-[50px]">
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+              onClick={() => setMobileOpen(false)}
+            >
+              <img
+                src="/logo.png"
+                alt="Ardent Limited"
+                className="h-[34px] w-auto"
+                style={{ objectFit: "contain" }}
+              />
+            </Link>
+            <button
+              aria-label="Close menu"
+              onClick={() => setMobileOpen(false)}
+              className="w-10 h-10 flex items-center justify-center"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M1 1L17 17M17 1L1 17"
+                  stroke="#0A0A0A"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav className="flex flex-col gap-3 px-[30px] pt-10">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-[28px] font-semibold text-black py-2 border-b border-line"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="#pricing"
+              onClick={() => setMobileOpen(false)}
+              className="btn-pill mt-8 self-start"
+            >
+              <span className="btn-txt">Download Brochure</span>
+              <span className="btn-round">
+                <svg viewBox="0 0 12 13" width="12" height="13">
+                  <path
+                    d="M4.99262 12.5303C5.28551 12.8232 5.76039 12.8232 6.05328 12.5303L10.8263 7.75736C11.1191 7.46447 11.1191 6.98959 10.8263 6.6967C10.5334 6.4038 10.0585 6.4038 9.76559 6.6967L5.52295 10.9393L1.28031 6.6967C0.987416 6.40381 0.512543 6.40381 0.219649 6.6967C-0.0732439 6.98959 -0.0732438 7.46447 0.21965 7.75736L4.99262 12.5303ZM5.52295 0L4.77295 1.22392e-07L4.77295 12L5.52295 12L6.27295 12L6.27295 -1.22392e-07L5.52295 0Z"
+                    fill="#0A0A0A"
+                  />
+                </svg>
+              </span>
+            </a>
+          </nav>
+        </div>
+      )}
     </>
   );
 }

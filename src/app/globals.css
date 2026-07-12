@@ -1,58 +1,125 @@
 @import "tailwindcss";
 
+/* ============================================================
+   ARDENT × HABITAT — DESIGN TOKENS
+   Habitat HCFE structure, recolored to Ardent brand:
+   Black + Warm Gold + Cream
+   ============================================================ */
+
 :root {
-  /* ===== Kota No.1 editorial palette (warm cream + terracotta + charcoal) ===== */
-  --background: #F5F2ED;        /* warm cream — page background */
-  --foreground: #1A1A1A;        /* near-black for body text */
-  --accent: #B5543A;            /* deep terracotta — primary accent */
-  --accent-light: #C56A52;      /* lifted terracotta for hovers */
-  --accent-muted: #F2E4DD;      /* pale terracotta tint for chips */
-  --terracotta-deep: #8B3A26;   /* deeper terracotta for dark sections */
-  --beige: #C4B5A0;             /* soft taupe/beige — secondary surface */
-  --beige-soft: #E8E0D2;        /* lifted beige for cards */
-  --brown: #8B7355;             /* warm brown — tertiary accent */
-  --charcoal: #2D2D2D;          /* dark charcoal — dark section backgrounds */
-  --ink: #1A1A1A;               /* black ink for text */
-  --cream: #FAF7F0;             /* lighter cream for alternating sections */
-  --gold: #E6C88C;              /* Ardent logo tagline gold — special accent */
-  --sand: #E5E0D5;              /* neutral border */
-  --warm-gray: #F6F4EF;         /* near-cream warm gray */
+  /* ===== Ardent brand palette (replaces Habitat greens) ===== */
+  --black: #0A0A0A;            /* primary dark — replaces Habitat deep forest #0F2311 */
+  --black-soft: #1A1A1A;       /* slightly lifted black for layered dark sections */
+  --gold: #E6C88C;             /* primary accent — replaces Habitat leaf green #74B319 */
+  --gold-deep: #C9A663;        /* darker gold for hovers / outlines */
+  --gold-soft: #F4E9D2;        /* cream-tinted gold for chips / soft surfaces */
+  --cream: #FAF7F0;            /* secondary background — replaces Habitat mint #F7FFEB */
+  --cream-deep: #F2EBDC;       /* deeper cream for alternating sections */
+  --white: #FFFFFF;            /* primary background */
+  --ink: #0A0A0A;              /* heading text — pure black */
+  --body: #2A2A2A;             /* body text — off-black */
+  --muted: #6E6E6E;            /* muted text — replaces #6C6C6C */
+  --line: rgba(10, 10, 10, 0.10);  /* hairline borders */
+  --whatsapp: #25D366;         /* WhatsApp native green */
+
+  /* ===== Typography stacks (Plus Jakarta Sans replaces PPMori) ===== */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+  --font-script: "Arizonia", ui-serif, cursive;
+
+  /* ===== Habitat-derived type scale (desktop base) ===== */
+  --text-hero-h1: 70px;          /* hero h1 desktop — 35px mobile */
+  --text-section-h1: 70px;       /* section h1 desktop — 45px mobile */
+  --text-section-h2-lg: 70px;    /* large section h2 desktop — 45px mobile */
+  --text-section-h2-md: 40px;    /* medium section h2 desktop — 35px mobile */
+  --text-section-h2-sm: 22px;    /* small section h2 desktop — 17px mobile */
+  --text-section-h3: 20px;       /* feature card heading */
+  --text-section-h4: 22px;       /* FAQ question desktop — 17px mobile */
+  --text-body-lg: 22px;          /* lead paragraph desktop — 17px mobile */
+  --text-body-md: 17px;          /* default body desktop — 15px mobile */
+  --text-body-sm: 16px;          /* small body desktop — 15px mobile */
+  --text-body-xs: 13px;          /* metadata / fine print */
+  --text-nav: 15px;              /* nav link */
+  --text-watermark: 75px;        /* sticky translucent headline desktop — 36px mobile */
+  --text-cta-xl: 80px;           /* final CTA h1 desktop — 40px mobile */
+  --text-tagline: 28px;          /* tagline desktop — 20px mobile */
+  --text-logo: 40px;             /* logo wordmark desktop — 30px mobile */
+
+  /* ===== Spacing & radii (from Habitat computed styles) ===== */
+  --radius-card: 24px;           /* image cards / feature blocks */
+  --radius-pill: 36px;           /* pill buttons (height/2 + 11) */
+  --radius-pill-lg: 50px;        /* nav pill container */
+  --radius-chip: 12px;           /* tag / chip */
+  --radius-round: 9999px;        /* circular icon containers */
+
+  --container-max: 1440px;       /* page max-width */
+  --content-max: 1400px;         /* content max-width (with 20px side gutters) */
+  --gutter-desktop: 60px;
+  --gutter-mobile: 30px;
+
+  /* ===== Animations ===== */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+/* ============================================================
+   THEME MAPPING (Tailwind v4 @theme inline)
+   ============================================================ */
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-accent-muted: var(--accent-muted);
-  --color-terracotta-deep: var(--terracotta-deep);
-  --color-beige: var(--beige);
-  --color-beige-soft: var(--beige-soft);
-  --color-brown: var(--brown);
-  --color-charcoal: var(--charcoal);
-  --color-ink: var(--ink);
-  --color-cream: var(--cream);
+  /* Colors */
+  --color-black: var(--black);
+  --color-black-soft: var(--black-soft);
   --color-gold: var(--gold);
-  --color-sand: var(--sand);
-  --color-warm-gray: var(--warm-gray);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-script: var(--font-arizonia);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-white: var(--white);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-whatsapp: var(--whatsapp);
+
+  /* Backward-compat aliases (so old components don't break) */
+  --color-foreground: var(--body);
+  --color-background: var(--cream);
+  --color-accent: var(--gold);
+  --color-accent-light: var(--gold-deep);
+  --color-accent-muted: var(--gold-soft);
+  --color-charcoal: var(--black);
+  --color-sand: var(--cream-deep);
+  --color-warm-gray: var(--cream);
+
+  /* Fonts */
+  --font-sans: var(--font-sans);
+  --font-script: var(--font-script);
 }
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--body);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* ===== Lenis smooth scroll base ===== */
+/* ============================================================
+   LENIS SMOOTH SCROLL
+   ============================================================ */
+
 html.lenis,
 html.lenis body {
   height: auto;
@@ -70,11 +137,238 @@ html.lenis body {
   pointer-events: none;
 }
 
-/* ===== Utilities ===== */
+/* ============================================================
+   UTILITIES — Habitat-derived component classes
+   ============================================================ */
+
+/* Script font — used SPARINGLY (max 1× per section, desktop-only) */
 .font-script {
-  font-family: var(--font-script), cursive;
+  font-family: var(--font-script);
   font-weight: 400;
   letter-spacing: 0;
 }
+@media (max-width: 767px) {
+  .font-script {
+    /* Hide script on mobile — Habitat mobile is purely sans-serif */
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+}
 
-/* Editorial horizontal slide-in (Habitat signature) — applied via framer-motion equivalents */
+/* Habitat-style link-button pill */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 20px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.3s var(--ease-out-expo);
+  text-decoration: none;
+}
+.btn-pill:hover {
+  background: var(--black-soft);
+}
+.btn-pill .btn-txt {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--white);
+}
+.btn-pill .btn-round {
+  width: 30px;
+  height: 30px;
+  background: var(--gold);
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.btn-pill .btn-round svg {
+  width: 17px;
+  height: 16px;
+  position: absolute;
+  transition: transform 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo);
+}
+.btn-pill .btn-round svg.arrow-primary {
+  opacity: 1;
+  transform: none;
+}
+.btn-pill .btn-round svg.arrow-secondary {
+  opacity: 0;
+  transform: translateX(-22px);
+}
+.btn-pill:hover .btn-round svg.arrow-primary {
+  opacity: 0;
+  transform: translateX(22px);
+}
+.btn-pill:hover .btn-round svg.arrow-secondary {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variant: gold pill (for light backgrounds) */
+.btn-pill.btn-pill-gold {
+  background: var(--gold);
+  color: var(--black);
+}
+.btn-pill.btn-pill-gold:hover {
+  background: var(--gold-deep);
+}
+.btn-pill.btn-pill-gold .btn-txt {
+  color: var(--black);
+}
+.btn-pill.btn-pill-gold .btn-round {
+  background: var(--black);
+}
+.btn-pill.btn-pill-gold .btn-round svg path {
+  fill: var(--gold);
+}
+
+/* Variant: outline pill (for dark backgrounds) */
+.btn-pill.btn-pill-outline {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+.btn-pill.btn-pill-outline .btn-txt {
+  color: var(--gold);
+}
+.btn-pill.btn-pill-outline .btn-round {
+  background: var(--gold);
+}
+.btn-pill.btn-pill-outline .btn-round svg path {
+  fill: var(--black);
+}
+
+/* Habitat-style tag/chip */
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--gold-soft);
+  color: var(--black);
+  border-radius: var(--radius-chip);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Habitat-style watermark headline (sticky translucent big text) */
+.watermark-headline {
+  font-family: var(--font-sans);
+  font-size: var(--text-watermark);
+  font-weight: 600;
+  line-height: 1.06;
+  color: rgba(10, 10, 10, 0.18);
+  letter-spacing: -0.02em;
+  position: sticky;
+  top: 108px;
+  display: inline-block;
+  max-width: 100%;
+}
+@media (max-width: 767px) {
+  .watermark-headline {
+    font-size: 36px;
+    line-height: 1.06;
+    top: 84px;
+  }
+}
+
+/* Habitat-style floating pill nav container */
+.nav-pill-container {
+  background: var(--cream);
+  padding: 5px;
+  border-radius: var(--radius-pill-lg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Habitat-style image card (rounded full-bleed image) */
+.img-card {
+  width: 100%;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  display: block;
+}
+
+/* Hairline divider */
+.divider {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 0;
+}
+
+/* Hidden on mobile (for desktop-only script accents) */
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Container helpers (matching Habitat widths) */
+.container-page {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+}
+.container-content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 768px) {
+  .container-content {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+/* Section base */
+.section {
+  width: 100%;
+  position: relative;
+}
+.section-pad-lg {
+  padding: 100px 60px;
+}
+.section-pad-md {
+  padding: 60px 30px;
+}
+@media (max-width: 767px) {
+  .section-pad-lg {
+    padding: 80px 30px;
+  }
+  .section-pad-md {
+    padding: 50px 30px;
+  }
+}
+
+/* Backdrop blur for sticky elements */
+.glass-cream {
+  background: rgba(250, 247, 240, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.glass-dark {
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}

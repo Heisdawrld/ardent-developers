@@ -2,370 +2,309 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import LeafDecor from "./LeafDecor";
 
-const distances = [
-  { time: "10 min", place: "Ikoyi" },
-  { time: "15 min", place: "Victoria Island" },
-  { time: "40 min", place: "Murtala Muhammed Airport" },
-  { time: "5 min", place: "Lekki Phase 1" },
-];
+const YEARS = [2025, 2026, 2027, 2028] as const;
 
-const keyFeatures = [
-  {
-    title: "Prime Location",
-    description:
-      "Strategically positioned in one of Lagos's most sought-after neighbourhoods with easy access to major business districts.",
+const YEAR_DATA: Record<
+  (typeof YEARS)[number],
+  { label: string; milestones: string[]; progress: number }
+> = {
+  2025: {
+    label: "Phase 1 — Groundwork",
+    milestones: [
+      "Perimeter fencing complete",
+      "Gatehouse operational",
+      "Road subgrade preparation",
+    ],
+    progress: 25,
   },
-  {
-    title: "Premium Infrastructure",
-    description:
-      "World-class road networks, underground utilities, efficient drainage systems, and modern street lighting throughout.",
-  },
-  {
-    title: "24/7 Security",
-    description:
-      "Gated community with round-the-clock security personnel, CCTV surveillance, and controlled access points.",
-  },
-  {
-    title: "Waterfront Living",
-    description:
-      "Direct access to the lagoon with waterfront pavilions and stunning water views from prime units.",
-  },
-];
-
-// Infrastructure completion projection — Habitat-style year toggle
-const infrastructure = [
-  {
-    year: 2025,
-    title: "Lekki Coastal Road — Phase 1",
-    status: "Under Construction",
-    progress: 35,
-    detail:
-      "Coastal dual-carriageway linking Lekki Phase 1 to the new waterfront corridor opens 2 lanes.",
-  },
-  {
-    year: 2026,
-    title: "Lekki–Epe Expressway Expansion",
-    status: "Funded",
+  2026: {
+    label: "Phase 2 — Infrastructure",
+    milestones: [
+      "Central water treatment plant online",
+      "Roads paved & lit",
+      "Drainage network complete",
+    ],
     progress: 55,
-    detail:
-      "Widening to 10 lanes through Lekki–Ajah, with new interchanges and a dedicated BRT corridor.",
   },
-  {
-    year: 2027,
-    title: "Waterfront Bridge + Ardent Access Loop",
-    status: "Planned",
-    progress: 70,
-    detail:
-      "Direct bridge connecting The Residences to the Lekki–Epe expressway — 4 min drive to Phase 1.",
+  2027: {
+    label: "Phase 3 — Handover",
+    milestones: [
+      "First plot handovers",
+      "Commercial avenue opens",
+      "Landscaping matured",
+    ],
+    progress: 80,
   },
-  {
-    year: 2028,
-    title: "Lekki Deep Seaport Access Network",
-    status: "Projection",
+  2028: {
+    label: "Phase 4 — Community",
+    milestones: [
+      "Farmers&rsquo; market operational",
+      "Full community live",
+      "Lekki Free Zone access road complete",
+    ],
     progress: 100,
-    detail:
-      "Full network complete. The Residences sits 15 min from the Deep Seaport and 20 min from the new Free Zone.",
   },
-];
-
-const years = [2025, 2026, 2027, 2028];
+};
 
 export default function Location() {
-  const [activeYear, setActiveYear] = useState(2025);
-  const active = infrastructure.find((i) => i.year === activeYear)!;
+  const [activeYear, setActiveYear] = useState<(typeof YEARS)[number]>(2025);
+  const data = YEAR_DATA[activeYear];
 
   return (
-    <section className="relative py-16 lg:py-24 bg-warm-gray overflow-hidden">
-      <LeafDecor
-        variant="landscape"
-        className="top-12 -right-12 w-72 text-accent opacity-[0.10]"
-      />
-      <LeafDecor
-        variant="leaf"
-        flip
-        className="bottom-24 -left-10 w-40 text-accent opacity-[0.06]"
-      />
-
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
-        <motion.p
-          initial={{ opacity: 0, x: -22 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-2"
+    <section id="location" className="w-full relative overflow-hidden">
+      {/* Bottom container — Habitat pattern (cream bg, intro paragraph) */}
+      <div
+        className="w-full"
+        style={{
+          background: "var(--cream)",
+          padding: "90px 60px",
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end"
+          style={{ gap: 30 }}
         >
-          Location
-        </motion.p>
+          <div className="flex-1">
+            <p
+              className="text-body"
+              style={{
+                fontSize: "clamp(15px, 1.5vw, 22px)",
+                lineHeight: 1.5,
+                maxWidth: 700,
+              }}
+            >
+              The Lekki Deep Seaport Access Road Network is opening up
+              the Epe, Ikorodu, and Ijebu-Ode axis. Ardent sits at the
+              strategic center of this once-in-a-generation
+              infrastructure shift.
+            </p>
+          </div>
 
-        <motion.h2
-          initial={{ opacity: 0, x: -22 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.05, duration: 0.6 }}
-          className="text-3xl lg:text-4xl font-bold tracking-tight mb-2"
-        >
-          Lekki, Lagos, Nigeria
-        </motion.h2>
+          {/* Right-side: Learn-more pill button (Habitat pattern) */}
+          <a
+            href="#pricing"
+            className="btn-pill self-start md:self-end"
+            style={{ background: "var(--black)" }}
+          >
+            <span className="btn-txt">Learn about the road infrastructure</span>
+            <span className="btn-round">
+              <svg
+                className="arrow arrow-primary"
+                width="17"
+                height="16"
+                viewBox="0 0 17 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.2071 8.7071C16.5976 8.31658 16.5976 7.68341 16.2071 7.29289L9.84315 0.928931C9.45262 0.538406 8.81946 0.538406 8.42893 0.928931C8.03841 1.31946 8.03841 1.95262 8.42893 2.34314L14.0858 8L8.42893 13.6569C8.03841 14.0474 8.03841 14.6805 8.42893 15.0711C8.81946 15.4616 9.45262 15.4616 9.84315 15.0711L16.2071 8.7071ZM0.5 8L0.5 9L15.5 9L15.5 8L15.5 7L0.5 7L0.5 8Z"
+                  fill="#0A0A0A"
+                />
+              </svg>
+              <svg
+                className="arrow arrow-secondary"
+                width="17"
+                height="16"
+                viewBox="0 0 17 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.2071 8.7071C16.5976 8.31658 16.5976 7.68341 16.2071 7.29289L9.84315 0.928931C9.45262 0.538406 8.81946 0.538406 8.42893 0.928931C8.03841 1.31946 8.03841 1.95262 8.42893 2.34314L14.0858 8L8.42893 13.6569C8.03841 14.0474 8.03841 14.6805 8.42893 15.0711C8.81946 15.4616 9.45262 15.4616 9.84315 15.0711L16.2071 8.7071ZM0.5 8L0.5 9L15.5 9L15.5 8L15.5 7L0.5 7L0.5 8Z"
+                  fill="#0A0A0A"
+                />
+              </svg>
+            </span>
+          </a>
+        </motion.div>
+      </div>
 
-        <motion.p
-          initial={{ opacity: 0, x: -22 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-foreground/60 text-[15px] leading-relaxed max-w-2xl mb-10"
-        >
-          Lekki is one of Lagos&apos;s fastest-growing corridors, with premium
-          infrastructure, new road networks, and world-class developments
-          reshaping the landscape. Close to the action, but removed from the
-          chaos.
-        </motion.p>
-
-        {/* ===== Interactive infrastructure map (Habitat signature) ===== */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-14">
-          {/* Map panel */}
+      {/* Content container — heading + paragraph + year-switcher */}
+      <div
+        className="w-full"
+        style={{ padding: "0 60px 60px" }}
+      >
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row" style={{ gap: 30 }}>
+          {/* Left: heading + paragraph */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-3 relative h-[360px] lg:h-[420px] rounded-2xl overflow-hidden border border-sand"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="flex-1"
           >
-            {/* Stylized map backdrop */}
-            <div className="absolute inset-0 bg-gradient-to-br from-beige-soft via-beige to-cream" />
-
-            {/* Roads / network SVG */}
-            <svg
-              className="absolute inset-0 w-full h-full"
-              viewBox="0 0 600 420"
-              preserveAspectRatio="none"
+            <h2
+              className="text-ink font-semibold mb-5"
+              style={{
+                fontSize: "clamp(35px, 5vw, 70px)",
+                lineHeight: "75px",
+                letterSpacing: "-0.03em",
+              }}
             >
-              {/* Lagoon */}
-              <path
-                d="M0 320 C 100 300, 180 350, 280 330 C 380 310, 460 360, 600 340 L600 420 L0 420 Z"
-                fill="#E8E0D2"
-                opacity="0.65"
-              />
-              {/* Expressway */}
-              <path
-                d="M-20 180 C 120 170, 220 200, 320 180 C 420 160, 520 200, 640 170"
-                stroke="#1A1A1A"
-                strokeWidth="6"
-                fill="none"
-                opacity="0.45"
-                strokeLinecap="round"
-              />
-              <path
-                d="M-20 180 C 120 170, 220 200, 320 180 C 420 160, 520 200, 640 170"
-                stroke="#B5543A"
-                strokeWidth="2"
-                fill="none"
-                strokeDasharray="10 8"
-                opacity="0.9"
-              />
-              {/* Cross road */}
-              <path
-                d="M210 -10 C 200 100, 230 220, 220 430"
-                stroke="#1A1A1A"
-                strokeWidth="3"
-                fill="none"
-                opacity="0.35"
-              />
-              {/* Pin: The Residences */}
-              <g transform="translate(220 175)">
-                <circle r="14" fill="#1A1A1A" opacity="0.2" />
-                <circle r="7" fill="#1A1A1A" />
-                <circle r="3" fill="#B5543A" />
-              </g>
-              {/* Pin: Lekki Phase 1 */}
-              <g transform="translate(380 130)">
-                <circle r="6" fill="#1A1A1A" opacity="0.5" />
-              </g>
-              {/* Pin: Airport */}
-              <g transform="translate(70 90)">
-                <circle r="6" fill="#1A1A1A" opacity="0.5" />
-              </g>
-              {/* Pin: VI */}
-              <g transform="translate(490 220)">
-                <circle r="6" fill="#1A1A1A" opacity="0.5" />
-              </g>
-              {/* Labels */}
-              <text
-                x="220"
-                y="160"
-                fill="#1A1A1A"
-                fontSize="11"
-                fontWeight="600"
-                textAnchor="middle"
-              >
-                The Residences
-              </text>
-              <text
-                x="380"
-                y="120"
-                fill="#1A1A1A"
-                fontSize="10"
-                textAnchor="middle"
-                opacity="0.75"
-              >
-                Lekki Phase 1
-              </text>
-              <text
-                x="70"
-                y="80"
-                fill="#1A1A1A"
-                fontSize="10"
-                textAnchor="middle"
-                opacity="0.75"
-              >
-                Airport
-              </text>
-              <text
-                x="490"
-                y="240"
-                fill="#1A1A1A"
-                fontSize="10"
-                textAnchor="middle"
-                opacity="0.75"
-              >
-                Victoria Island
-              </text>
-              <text
-                x="500"
-                y="395"
-                fill="#1A1A1A"
-                fontSize="11"
-                fontStyle="italic"
-                opacity="0.65"
-              >
-                Lagos Lagoon
-              </text>
-            </svg>
-
-            {/* Floating year chip on map */}
-            <div className="absolute top-4 left-4 bg-white/85 backdrop-blur-sm rounded-full px-4 py-1.5 text-[11px] font-semibold tracking-wide border border-sand">
-              Infrastructure · {activeYear}
-            </div>
-
-            <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-foreground/40">
-              Click a year to explore
+              Infrastructure Map
+            </h2>
+            <p
+              className="text-body"
+              style={{
+                fontSize: "clamp(15px, 1.4vw, 22px)",
+                lineHeight: 1.5,
+                maxWidth: 520,
+              }}
+            >
+              The Lekki Deep Seaport Access Road Network is opening up
+              the Epe, Ikorodu, and Ijebu-Ode axis. Ardent sits at the
+              strategic center of this once-in-a-generation
+              infrastructure shift.
             </p>
           </motion.div>
 
-          {/* Year toggle + detail panel */}
+          {/* Right: year-switcher */}
           <motion.div
-            initial={{ opacity: 0, x: 22 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="lg:col-span-2 bg-white rounded-2xl p-6 lg:p-8 border border-sand"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="flex flex-col"
+            style={{ gap: 16, minWidth: 233 }}
           >
-            <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 mb-3">
+            <h4
+              className="text-black font-semibold"
+              style={{
+                fontSize: 15,
+                lineHeight: "20px",
+                letterSpacing: "-0.23px",
+              }}
+            >
               Infrastructure Completion Projection
-            </p>
+            </h4>
 
             {/* Year buttons */}
-            <div className="flex gap-2 mb-6">
-              {years.map((y) => (
-                <button
-                  key={y}
-                  onClick={() => setActiveYear(y)}
-                  className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-                    activeYear === y
-                      ? "bg-accent text-white shadow-sm"
-                      : "bg-warm-gray text-foreground/60 hover:bg-sand/60"
-                  }`}
-                >
-                  {y}
-                </button>
-              ))}
+            <div className="flex" style={{ gap: 8 }}>
+              {YEARS.map((year) => {
+                const isActive = year === activeYear;
+                return (
+                  <button
+                    key={year}
+                    onClick={() => setActiveYear(year)}
+                    className="flex-1 px-4 py-2 rounded-[12px] font-semibold transition-all"
+                    style={{
+                      background: isActive
+                        ? "var(--gold)"
+                        : "var(--gold-soft)",
+                      color: "var(--black)",
+                      fontSize: 15,
+                      border: isActive
+                        ? "1px solid var(--gold-deep)"
+                        : "1px solid transparent",
+                    }}
+                  >
+                    {year}
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Detail */}
+            {/* Active year data */}
             <AnimatePresence mode="wait">
               <motion.div
-                key={active.year}
-                initial={{ opacity: 0, y: 10 }}
+                key={activeYear}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="p-4 rounded-[12px]"
+                style={{ background: "var(--cream-deep)" }}
               >
-              <div className="flex items-center justify-between mb-3">
-                <span
-                  className={`inline-flex px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
-                    active.status === "Projection"
-                      ? "bg-accent-muted text-accent"
-                      : active.status === "Funded"
-                      ? "bg-beige text-foreground/70"
-                      : active.status === "Planned"
-                      ? "bg-accent-muted text-accent"
-                      : "bg-accent-muted text-accent"
-                  }`}
+                <p
+                  className="text-ink font-semibold mb-3"
+                  style={{ fontSize: 15, lineHeight: "20px" }}
                 >
-                  {active.status}
-                </span>
-                <span className="text-xs font-mono text-foreground/50">
-                  {active.progress}%
-                </span>
-              </div>
+                  {data.label}
+                </p>
 
-              <h3 className="text-lg font-bold mb-2 leading-snug">
-                {active.title}
-              </h3>
-              <p className="text-[13px] text-foreground/60 leading-relaxed mb-5">
-                {active.detail}
-              </p>
+                {/* Progress bar */}
+                <div
+                  className="w-full h-2 rounded-full mb-4 overflow-hidden"
+                  style={{ background: "rgba(10, 10, 10, 0.08)" }}
+                >
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${data.progress}%` }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-full rounded-full"
+                    style={{ background: "var(--gold)" }}
+                  />
+                </div>
 
-              {/* Progress bar */}
-              <div className="h-1.5 w-full bg-warm-gray rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${active.progress}%` }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="h-full bg-accent rounded-full"
-                />
-              </div>
+                <ul className="flex flex-col" style={{ gap: 6 }}>
+                  {data.milestones.map((m, i) => (
+                    <li
+                      key={i}
+                      className="text-body text-[13px] flex items-start"
+                      style={{ gap: 8 }}
+                    >
+                      <span
+                        className="text-gold mt-1 flex-shrink-0"
+                        style={{ fontSize: 10 }}
+                      >
+                        ●
+                      </span>
+                      <span dangerouslySetInnerHTML={{ __html: m }} />
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             </AnimatePresence>
           </motion.div>
         </div>
+      </div>
 
-        {/* Distance boxes */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14">
-          {distances.map((d, i) => (
-            <motion.div
-              key={d.place}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="bg-white rounded-xl p-5 text-center border border-sand"
-            >
-              <p className="text-2xl font-bold text-accent mb-1">{d.time}</p>
-              <p className="text-[13px] text-foreground/50">{d.place}</p>
-            </motion.div>
-          ))}
-        </div>
+      {/* Map container — embedded Google Maps of Lekki/Lagos area */}
+      <div
+        className="w-full relative"
+        style={{ padding: "0 20px", height: 650 }}
+      >
+        <div className="max-w-[1400px] mx-auto h-full relative">
+          <iframe
+            title="Ardent Estate Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127292.70833333334!2d3.5!3d6.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDAuMCJOIDPCsTMwJzAwLjAiRQ!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+            className="w-full h-full"
+            style={{
+              border: 0,
+              borderRadius: 24,
+              filter: "grayscale(0.4) contrast(1.05)",
+            }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
 
-        {/* Key Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {keyFeatures.map((feat, i) => (
-            <motion.div
-              key={feat.title}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -22 : 22 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              className="bg-white rounded-xl p-6 border border-sand"
-            >
-              <h3 className="text-base font-semibold mb-2">{feat.title}</h3>
-              <p className="text-[13px] text-foreground/55 leading-relaxed">
-                {feat.description}
-              </p>
-            </motion.div>
-          ))}
+          {/* Map label overlay — Habitat pattern */}
+          <div
+            className="absolute top-6 left-6 px-4 py-2 rounded-[12px] glass-dark"
+            style={{ color: "var(--white)" }}
+          >
+            <p className="text-[11px] tracking-[0.2em] uppercase opacity-70">
+              Ardent Estate Site
+            </p>
+            <p className="text-base font-semibold mt-0.5">Lekki Corridor</p>
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 767px) {
+          section :global(.w-full[style*="padding: 90px 60px"]) {
+            padding: 60px 20px 109px !important;
+          }
+          section :global(.w-full[style*="padding: 0px 60px 60px"]) {
+            padding: 0 0 50px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
