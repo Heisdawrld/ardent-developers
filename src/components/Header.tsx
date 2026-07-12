@@ -36,14 +36,12 @@ export default function Header() {
             height: 50,
           }}
         >
-          {/* Logo */}
+          {/* Logo — prominently sized to match Habitat reference */}
           <Link href="/" className="flex items-center gap-3">
             <img
-              src="/logo.png"
+              src="/logo-header.png"
               alt="Ardent Limited"
-              width={30}
-              height={40}
-              className="h-[40px] w-auto"
+              className="h-[64px] w-auto"
               style={{ objectFit: "contain" }}
             />
           </Link>
@@ -109,13 +107,13 @@ export default function Header() {
       {/* ============ MOBILE HEADER (logo + hamburger) ============ */}
       <div
         className="sticky z-[1000] md:hidden flex items-center justify-between"
-        style={{ top: 10, padding: "0 30px", height: 50 }}
+        style={{ top: 10, padding: "0 30px", height: 60 }}
       >
         <Link href="/" className="flex items-center gap-2">
           <img
-            src="/logo.png"
+            src="/logo-header.png"
             alt="Ardent Limited"
-            className="h-[34px] w-auto"
+            className="h-[50px] w-auto"
             style={{ objectFit: "contain" }}
           />
         </Link>
@@ -141,16 +139,16 @@ export default function Header() {
           className="fixed inset-0 z-[2000] md:hidden"
           style={{ background: "var(--cream)" }}
         >
-          <div className="flex items-center justify-between px-[30px] h-[50px]">
+          <div className="flex items-center justify-between px-[30px] h-[60px]">
             <Link
               href="/"
               className="flex items-center gap-2"
               onClick={() => setMobileOpen(false)}
             >
               <img
-                src="/logo.png"
+                src="/logo-header.png"
                 alt="Ardent Limited"
-                className="h-[34px] w-auto"
+                className="h-[50px] w-auto"
                 style={{ objectFit: "contain" }}
               />
             </Link>

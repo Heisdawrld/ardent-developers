@@ -23,9 +23,9 @@ export default function Footer() {
         style={{ gap: 16 }}
       >
         <img
-          src="/logo.png"
+          src="/logo.webp"
           alt="Ardent Limited"
-          className="w-[160px] md:w-[200px] h-auto"
+          className="h-[160px] md:h-[220px] w-auto"
           style={{ objectFit: "contain" }}
         />
         <h3
