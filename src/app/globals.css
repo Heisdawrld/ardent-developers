@@ -1995,6 +1995,35 @@ img { max-width: 100%; height: auto; display: block; }
     line-height: 50px;
   }
 
+  /* ---- Full-bleed image sections: remove border-radius on mobile for true edge-to-edge ---- */
+  .vision-section section img,
+  .avenue-section section img {
+    border-radius: 0;
+    object-position: center center;
+  }
+
+  .vision-section section .overlay-bg .overlay,
+  .avenue-section section .overlay-bg .overlay {
+    border-radius: 0;
+  }
+
+  /* Ensure avenue-section breaks out of parent padding on mobile */
+  .avenue-section {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    height: 900px;
+  }
+
+  .vision-section {
+    height: 900px;
+  }
+
+  .vision-section .txt-name h2 {
+    font-size: 56px;
+    letter-spacing: -2px;
+  }
+
   .highway-section .top-section {
     padding: 60px 20px 40px;
   }
