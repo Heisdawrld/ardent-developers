@@ -9,20 +9,19 @@ export default function Hero() {
         <section>
           {/* ============ HERO BACKGROUND IMAGE + OVERLAY ============ */}
           <div className="img-bg">
-            {/* Video background — slot: drop /public/hero.mp4 to enable */}
             {/* Image fallback */}
             <img
               src="/images/hero-poster.jpg"
               alt="Ardent Limited luxury estate"
               className="slide object-cover w-full h-full"
             />
-            {/* 52% black overlay — Habitat exact pattern */}
+            {/* Warm gradient overlay — Kota-style */}
             <div className="bg" />
           </div>
 
           {/* ============ HERO CONTENT CONTAINER ============ */}
           <div className="section-container">
-            {/* ===== TOP: Brand mark ===== */}
+            {/* ===== TOP: Brand mark — editorial style ===== */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -30,26 +29,35 @@ export default function Hero() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 12,
+                gap: 16,
                 zIndex: 10,
               }}
             >
               <span
                 style={{
-                  color: "var(--white)",
-                  fontSize: 12,
-                  fontWeight: 500,
-                  letterSpacing: "0.25em",
+                  display: "inline-block",
+                  width: 32,
+                  height: 1,
+                  background: "var(--terracotta-soft)",
+                }}
+              />
+              <span
+                style={{
+                  color: "var(--clay)",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: "0.3em",
                   textTransform: "uppercase",
                 }}
               >
-                Ardent Limited · Lagos, Nigeria
+                Ardent Orchards · Lagos, Nigeria
               </span>
             </motion.div>
 
-            {/* ===== MAIN CONTENT (split left/right — Habitat pattern) ===== */}
+            {/* ===== MAIN CONTENT (split left/right — Habitat pattern, Kota warmth) ===== */}
             <div className="content">
-              {/* LEFT: headline + tagline + CTA */}
+              {/* LEFT: editorial serif headline + tagline + CTA */}
               <motion.div
                 className="left-content"
                 initial={{ opacity: 0, y: 30 }}
@@ -64,7 +72,7 @@ export default function Hero() {
                   for the future.
                 </h1>
 
-                <p>Land Today • Home Tomorrow • Community Forever</p>
+                <p>Land Today · Home Tomorrow · Community Forever</p>
 
                 <a href="#pricing" className="link-button">
                   <div className="txt">Reserve Your Plot</div>
@@ -99,7 +107,7 @@ export default function Hero() {
                 </a>
               </motion.div>
 
-              {/* RIGHT: info card + secondary CTA */}
+              {/* RIGHT: editorial caption card — Kota-style narrative */}
               <motion.div
                 className="right-content"
                 initial={{ opacity: 0, y: 30 }}

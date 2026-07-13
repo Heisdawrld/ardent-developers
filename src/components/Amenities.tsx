@@ -1,16 +1,10 @@
 "use client";
 
 /**
- * Amenities — Full Habitat HCFE pattern replica.
+ * Amenities — Hybrid Habitat + Kota No.1.
  *
- * Matches Habitat's exact section flow:
- *   1. .btn-tag eyebrow chip
- *   2. .amenities-hero — heading + description paragraphs
- *   3. .amenities-list — 6 numbered feature items (02–07)
- *   4. .avenue-section — full-bleed sticky image + watermark name
- *   5. .market-intro — descriptive paragraph about the market
- *   6. .commercial — 5 market cards
- *   7. .bottom-container — headline + line + CTA
+ * Keeps Habitat's editorial intro + numbered amenity list + market cards,
+ * adds Kota-style "Communal Facilities" structured table.
  */
 
 const AMENITY_ITEMS = [
@@ -43,6 +37,58 @@ const AMENITY_ITEMS = [
     num: "07",
     title: "Ardent Lifestyle Hub",
     desc: "Our community lifestyle hub unites community members and visitors to enjoy curated experiences all year round.",
+  },
+];
+
+/** Kota-style Communal Facilities table data */
+const FACILITIES = [
+  {
+    name: "Clubhouse",
+    desc: "3,000 SQM community hub for gatherings, events, and resident meetings",
+    status: "Phase 1",
+    active: true,
+  },
+  {
+    name: "Farm-to-Table Restaurant",
+    desc: "Curated dining featuring produce grown within the estate's agrihood",
+    status: "Phase 1",
+    active: true,
+  },
+  {
+    name: "Wellness Spa",
+    desc: "Restorative wellness center with treatment rooms and relaxation lounges",
+    status: "Phase 2",
+    active: false,
+  },
+  {
+    name: "Co-working Space",
+    desc: "Fiber-connected work hub with private offices and meeting rooms",
+    status: "Phase 2",
+    active: false,
+  },
+  {
+    name: "Sports Complex",
+    desc: "Tennis, basketball, and multi-purpose courts with spectator seating",
+    status: "Phase 2",
+    active: false,
+  },
+  {
+    name: "Central Water System",
+    desc: "Pre-installed potable water infrastructure servicing every plot from day one",
+    status: "Delivered",
+    active: true,
+  },
+  {
+    name: "Perimeter Fencing",
+    desc: "Sturdy boundary fencing with controlled access gatehouse",
+    status: "Delivered",
+    active: true,
+  },
+  {
+    name: "Intelligent Drainage",
+    desc: "Eco-friendly drainage design that prevents flooding and recycles water",
+    status: "Delivered",
+    active: true,
   },
 ];
 
@@ -161,6 +207,41 @@ export default function Amenities() {
               <div className="overlay" />
             </div>
           </section>
+        </div>
+
+        {/* ===== Kota-style Communal Facilities table ===== */}
+        <div className="communal-facilities-section">
+          <div className="communal-facilities-header">
+            <h2>Communal Facilities</h2>
+            <p>
+              Every shared space at Ardent is positioned to anchor lasting value
+              into every plot — thoughtfully phased, fully serviced, and curated
+              for community life.
+            </p>
+          </div>
+
+          <table className="facilities-table">
+            <thead>
+              <tr>
+                <th>Facility</th>
+                <th>Description</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {FACILITIES.map((facility) => (
+                <tr key={facility.name}>
+                  <td className="facility-name">{facility.name}</td>
+                  <td>{facility.desc}</td>
+                  <td
+                    className={`facility-status ${facility.active ? "active" : ""}`}
+                  >
+                    {facility.status}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         {/* ===== Market intro paragraph ===== */}

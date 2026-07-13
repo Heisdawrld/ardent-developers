@@ -1,23 +1,10 @@
 "use client";
 
 /**
- * Vision — Habitat `.vision-section` pattern (1:1 CSS replica).
+ * Vision — Hybrid Habitat + Kota pattern.
  *
- * Structure (from HABITAT_REF/sections/01-vision-super-container.html):
- *
- *   .vision-super-container
- *     .vision-section                ← height: 1384px; position: relative
- *       .txt-name                    ← position: sticky; top: 0; height: 100vh
- *                                     ← flex column, justify-end, align-center
- *         h2                         ← 90px cream headline (the watermark name)
- *       section                      ← position: absolute; inset: 0
- *         img                        ← full-bleed estate aerial (24px radius)
- *         .overlay-bg
- *           .overlay                ← 28% black tint
- *
- * The sticky `.txt-name` pins the estate name to the bottom of the viewport
- * while the full-bleed image (and its 28% black overlay) scrolls past — a
- * Habitat signature parallax reveal.
+ * Keeps Habitat's sticky full-bleed image with watermark headline,
+ * adds a Kota-style editorial caption (serif italic) at bottom-left.
  */
 
 export default function Vision() {
@@ -39,6 +26,16 @@ export default function Vision() {
           />
           <div className="overlay-bg">
             <div className="overlay" />
+          </div>
+
+          {/* Kota-style editorial caption */}
+          <div className="vision-editorial-caption">
+            <div className="eyebrow">01 · The Vision</div>
+            <p>
+              A coastal neighborhood near Epe — designed for purpose-driven
+              living, where landscape, architecture, and community meet along
+              the Lekki Corridor.
+            </p>
           </div>
         </section>
       </div>

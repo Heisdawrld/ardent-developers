@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Arizonia } from "next/font/google";
+import { Plus_Jakarta_Sans, Arizonia, Fraunces } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 
@@ -14,6 +14,14 @@ const arizonia = Arizonia({
   variable: "--font-arizonia",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["SOFT", "WONK", "opsz"],
   display: "swap",
 });
 
@@ -37,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${arizonia.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${arizonia.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-body font-sans">
         <LenisProvider>{children}</LenisProvider>

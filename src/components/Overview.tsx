@@ -1,29 +1,11 @@
 "use client";
 
 /**
- * Overview — Habitat `.main-section` pattern (1:1 CSS replica).
+ * Overview — Hybrid Habitat + Kota No.1.
  *
- * Structure (from HABITAT_REF/sections/01-vision-super-container.html
- *  — actually, this corresponds to Habitat's "introducing" overview block
- *  that pairs the side-leaf + line-poles decoration with the lead copy):
- *
- *   .main-section
- *     img.side-leaf            ← decorative left-side leaf SVG
- *     section                  ← flex row, gap 10px, padding 84px 60px 50px
- *       .left-section          ← flex column, justify-between, gap 250px
- *         p                    ← lead copy (22px)
- *         .h2                  ← flex column, gap 50px
- *           h2                 ← 50px headline w/ span.gold-deep
- *           h2                 ← follow-up headline
- *       .right-section         ← justify-end
- *         .lines               ← flex row of img + line-poles
- *           img                ← side_leaf.svg
- *           .line-pole x10     ← widths 1,3,5,7,9,11,13,15,17,19px
- *     .line-ctn                ← 1px gold rule
- *     .line-diagonal           ← -1deg diagonal gold rule
- *
- * NOTE: All HTML structure and class names mirror Habitat exactly so the
- * Ardent-recolor of Habitat's CSS produces a 1:1 visual match.
+ * Keeps Habitat's main-section structure (lead copy + h2 + line poles),
+ * but leans into editorial warmth via serif italic lead copy and
+ * terracotta-tinted line poles (handled in globals.css).
  */
 
 const LINE_POLES = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19] as const;
@@ -31,6 +13,13 @@ const LINE_POLES = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19] as const;
 export default function Overview() {
   return (
     <div id="overview" className="main-section">
+      {/* Editorial section divider — Kota-style numbering */}
+      <div className="editorial-divider">
+        <span className="num">01</span>
+        <div className="line" />
+        <span className="label">The Vision</span>
+      </div>
+
       <section>
         {/* ============ LEFT: lead copy + section h2 ============ */}
         <div className="left-section">

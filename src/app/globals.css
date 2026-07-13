@@ -2226,3 +2226,1076 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 767px) {
   .mobile-only { display: block; }
 }
+
+/* ============================================================
+   ARDENT × KOTA NO.1 — HYBRID DESIGN LAYER
+   Warm editorial aesthetic layered over Habitat structure
+   ============================================================ */
+
+:root {
+  /* ===== Warm earthy palette (Kota-inspired) ===== */
+  --terracotta: #B85C3C;          /* warm clay accent — primary warm */
+  --terracotta-deep: #8B4226;     /* deeper clay for hovers */
+  --terracotta-soft: #E8C4A8;     /* soft clay tint */
+  --warm-brown: #6B4423;          /* deep wood tone */
+  --warm-brown-soft: #A88560;     /* lighter wood */
+  --sage: #8B9A7A;                /* muted olive accent */
+  --sage-soft: #C8D4BA;           /* soft sage tint */
+  --clay: #D9A77A;                /* warm clay-gold blend */
+  --cream-warm: #F5EEE0;          /* warmer cream (Kota-style) */
+  --cream-deep-warm: #EDE2CC;     /* deeper warm cream */
+  --ink-warm: #1A1411;            /* warm near-black */
+  --body-warm: #3A2E26;           /* warm body text */
+
+  /* ===== Serif display font (Kota-style editorial headlines) ===== */
+  --font-serif: "Fraunces", "Times New Roman", ui-serif, Georgia, serif;
+  --font-serif-italic: "Fraunces", ui-serif, Georgia, serif;
+}
+
+/* ============================================================
+   GLOBAL SERIF HEADLINE OVERRIDE
+   All h1, h2, h3, h4 now use Fraunces serif (Kota aesthetic)
+   while body / UI / buttons stay Plus Jakarta Sans (Habitat)
+   ============================================================ */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif) !important;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 50, "WONK" 0, "opsz" 144;
+}
+
+/* Hero h1 — editorial display serif */
+.hero-section h1 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-variation-settings: "SOFT" 80, "WONK" 1, "opsz" 144;
+}
+
+/* ============================================================
+   HYBRID HERO — Full-bleed lifestyle photo with serif overlay
+   ============================================================ */
+
+.hero-section section {
+  border-radius: 0;  /* Full-bleed, no rounded corners (Kota style) */
+}
+
+@media (min-width: 769px) {
+  .hero-section {
+    padding: 0;  /* Full-bleed on desktop too */
+  }
+}
+
+.hero-section section .img-bg .bg {
+  background: linear-gradient(180deg,
+    rgba(26, 20, 17, 0.55) 0%,
+    rgba(26, 20, 17, 0.35) 40%,
+    rgba(26, 20, 17, 0.75) 100%
+  ) !important;
+}
+
+/* Hero headline — warm cream, serif italic */
+.hero-section h1 {
+  color: var(--cream-warm) !important;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .left-content p {
+  color: var(--clay) !important;
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+.hero-section .right-content .container p {
+  color: var(--cream-warm) !important;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+  background: rgba(26, 20, 17, 0.4);
+  backdrop-filter: blur(8px);
+  border-left: 2px solid var(--terracotta);
+  padding: 20px 24px;
+  border-radius: 0;
+}
+
+/* ============================================================
+   STICKY HEADER — Warm pill nav
+   ============================================================ */
+
+.sticky-header {
+  background: rgba(245, 238, 224, 0.92) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(184, 92, 60, 0.15);
+}
+
+.sticky-header .link-container a {
+  font-family: var(--font-sans) !important;
+  letter-spacing: 0.01em;
+  transition: all 0.3s ease;
+}
+
+.sticky-header .link-container a:hover,
+.sticky-header .link-container a.active {
+  background: var(--terracotta) !important;
+  color: var(--cream-warm) !important;
+  border-color: var(--terracotta) !important;
+}
+
+.sticky-header .link-button .round {
+  background: var(--terracotta) !important;
+}
+
+.sticky-header .link-button .round svg path {
+  fill: var(--cream-warm) !important;
+}
+
+/* ============================================================
+   OVERVIEW / MAIN SECTION — Editorial narrative
+   ============================================================ */
+
+.main-section {
+  background: var(--cream-warm) !important;
+  position: relative;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+}
+
+.main-section section {
+  padding: 120px 60px 100px !important;
+}
+
+.main-section .left-section p {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-size: 26px !important;
+  color: var(--warm-brown) !important;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.main-section .h2 h2 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  font-size: 42px !important;
+  line-height: 1.25 !important;
+  color: var(--ink-warm) !important;
+  letter-spacing: -0.02em;
+}
+
+.main-section .h2 h2 span {
+  color: var(--terracotta) !important;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Line poles get warm terracotta tint */
+.main-section .line-pole {
+  background: var(--terracotta) !important;
+  opacity: 0.6;
+}
+
+.main-section .line-ctn {
+  background: var(--terracotta) !important;
+  opacity: 0.3;
+}
+
+/* ============================================================
+   VISION SECTION — Sticky full-bleed with serif overlay
+   ============================================================ */
+
+.vision-section .txt-name h2 {
+  font-family: var(--font-serif) !important;
+  font-weight: 300 !important;
+  font-style: italic;
+  font-size: 120px !important;
+  letter-spacing: -0.04em;
+  color: var(--cream-warm) !important;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+}
+
+/* Add editorial caption to vision */
+.vision-editorial-caption {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  max-width: 480px;
+  z-index: 5;
+  color: var(--cream-warm);
+}
+
+.vision-editorial-caption .eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 12px;
+}
+
+.vision-editorial-caption p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--cream-warm);
+}
+
+/* ============================================================
+   AMENITIES — Kota-style Communal Facilities table
+   ============================================================ */
+
+.amenities-super-container {
+  background: var(--cream-warm) !important;
+}
+
+.new-habitat-commercial {
+  background: var(--cream-warm) !important;
+}
+
+.btn-tag {
+  background: var(--terracotta) !important;
+  color: var(--cream-warm) !important;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.amenities-hero h2 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  font-size: 72px !important;
+  color: var(--ink-warm) !important;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.amenities-hero p {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--body-warm);
+  max-width: 640px;
+}
+
+/* Amenities list — editorial style */
+.amenity-item {
+  border-top: 1px solid rgba(184, 92, 60, 0.2) !important;
+  padding: 28px 0 !important;
+  transition: padding-left 0.4s ease;
+}
+
+.amenity-item:hover {
+  padding-left: 16px !important;
+}
+
+.amenity-item .amenity-num {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-size: 14px !important;
+  color: var(--terracotta) !important;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.amenity-item .amenity-content h3 {
+  font-family: var(--font-serif) !important;
+  font-weight: 500 !important;
+  font-size: 28px !important;
+  color: var(--ink-warm) !important;
+  letter-spacing: -0.01em;
+}
+
+.amenity-item .amenity-content p {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--body-warm);
+  line-height: 1.6;
+}
+
+/* Kota-style Communal Facilities Table */
+.communal-facilities-section {
+  padding: 80px 60px;
+  background: var(--white);
+}
+
+.communal-facilities-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.communal-facilities-header h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 48px;
+  color: var(--ink-warm);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 500px;
+}
+
+.communal-facilities-header p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--body-warm);
+  max-width: 360px;
+  line-height: 1.7;
+}
+
+.facilities-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+}
+
+.facilities-table thead th {
+  text-align: left;
+  padding: 18px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  border-bottom: 2px solid var(--ink-warm);
+}
+
+.facilities-table tbody tr {
+  border-bottom: 1px solid rgba(26, 20, 17, 0.1);
+  transition: background 0.3s ease;
+}
+
+.facilities-table tbody tr:hover {
+  background: var(--cream-warm);
+}
+
+.facilities-table tbody td {
+  padding: 24px 20px;
+  font-size: 15px;
+  color: var(--body-warm);
+  vertical-align: top;
+}
+
+.facilities-table tbody td.facility-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink-warm);
+  font-style: italic;
+}
+
+.facilities-table tbody td.facility-status {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--sage);
+  letter-spacing: 0.05em;
+}
+
+.facilities-table tbody td.facility-status.active {
+  color: var(--terracotta);
+}
+
+/* Market cards — warm tint */
+.market-card {
+  background: var(--cream-warm) !important;
+  border: 1px solid rgba(184, 92, 60, 0.15) !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.market-card img {
+  filter: sepia(0.15) saturate(1.05);
+  transition: filter 0.5s ease;
+}
+
+.market-card:hover img {
+  filter: sepia(0.05) saturate(1.15);
+}
+
+.market-card .title {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-size: 18px !important;
+  color: var(--ink-warm) !important;
+  padding: 18px 20px !important;
+  font-weight: 500;
+}
+
+/* ============================================================
+   INFRASTRUCTURE — Editorial map + timeline
+   ============================================================ */
+
+.infrastructure-super-container {
+  background: var(--cream-deep-warm) !important;
+}
+
+.highway-section .top-section h1 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  font-size: 64px !important;
+  color: var(--ink-warm) !important;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.highway-section .top-section h1 span {
+  color: var(--terracotta) !important;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.middle-section .quote {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  font-size: 42px !important;
+  line-height: 1.3 !important;
+  color: var(--cream-warm) !important;
+  letter-spacing: -0.02em;
+}
+
+.map-section .map-header h2 {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  color: var(--ink-warm) !important;
+}
+
+.timeline-year {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+}
+
+.timeline-year.active {
+  background: var(--terracotta) !important;
+  color: var(--cream-warm) !important;
+  border-color: var(--terracotta) !important;
+}
+
+/* ============================================================
+   PRICING — Kota-style Schedule of Areas table
+   ============================================================ */
+
+.price-super-container {
+  background: var(--ink-warm) !important;
+}
+
+.adventure-section {
+  background: var(--ink-warm) !important;
+  color: var(--cream-warm);
+}
+
+.adventure-section .head-content h1 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  font-size: 88px !important;
+  color: var(--cream-warm) !important;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.adventure-section .head-content h1 span {
+  color: var(--terracotta-soft) !important;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.adventure-section .head-content p {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--cream-warm);
+  opacity: 0.8;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Schedule of Areas Table — Kota style */
+.schedule-of-areas {
+  padding: 80px 60px 100px;
+  background: var(--ink-warm);
+  color: var(--cream-warm);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  gap: 40px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(232, 196, 168, 0.2);
+  padding-bottom: 30px;
+}
+
+.schedule-header .title-block h2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 48px;
+  color: var(--cream-warm);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.schedule-header .title-block .eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta-soft);
+  margin-bottom: 12px;
+}
+
+.schedule-header .meta {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--cream-warm);
+  opacity: 0.7;
+  text-align: right;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+}
+
+.schedule-table thead th {
+  text-align: left;
+  padding: 20px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta-soft);
+  border-bottom: 1px solid rgba(232, 196, 168, 0.3);
+}
+
+.schedule-table thead th.right {
+  text-align: right;
+}
+
+.schedule-table tbody tr {
+  border-bottom: 1px solid rgba(232, 196, 168, 0.12);
+  transition: background 0.3s ease;
+}
+
+.schedule-table tbody tr:hover {
+  background: rgba(184, 92, 60, 0.08);
+}
+
+.schedule-table tbody td {
+  padding: 26px 16px;
+  font-size: 15px;
+  color: var(--cream-warm);
+  vertical-align: middle;
+}
+
+.schedule-table tbody td.plot-type {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--cream-warm);
+}
+
+.schedule-table tbody td.plot-size {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--clay);
+  letter-spacing: 0.02em;
+}
+
+.schedule-table tbody td.plot-price {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--terracotta-soft);
+  text-align: right;
+}
+
+.schedule-table tbody td.plot-status {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.schedule-table tbody td.plot-status .badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid var(--terracotta-soft);
+  border-radius: 50px;
+  color: var(--terracotta-soft);
+  background: rgba(184, 92, 60, 0.1);
+}
+
+.schedule-table tbody td.plot-status .badge.few {
+  color: var(--clay);
+  border-color: var(--clay);
+  background: rgba(217, 167, 122, 0.1);
+}
+
+.schedule-table tbody td.plot-status .badge.sold {
+  color: var(--muted);
+  border-color: var(--muted);
+  background: transparent;
+  opacity: 0.5;
+}
+
+/* Investment highlights row — Kota style */
+.investment-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 60px;
+  border-top: 1px solid rgba(232, 196, 168, 0.2);
+  border-bottom: 1px solid rgba(232, 196, 168, 0.2);
+}
+
+.investment-highlights .highlight {
+  padding: 40px 30px;
+  border-right: 1px solid rgba(232, 196, 168, 0.15);
+}
+
+.investment-highlights .highlight:last-child {
+  border-right: none;
+}
+
+.investment-highlights .highlight .number {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 56px;
+  color: var(--terracotta-soft);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.investment-highlights .highlight .label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--cream-warm);
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* Brochure form — warm style */
+.brochure-form-container .left {
+  background: var(--terracotta-deep) !important;
+}
+
+.brochure-form-container .left h2,
+.brochure-form-container .left h4 {
+  color: var(--cream-warm) !important;
+}
+
+.brochure-form-container .right {
+  background: var(--cream-warm) !important;
+}
+
+.brochure-form-container .right .input input {
+  background: var(--white) !important;
+  border: 1px solid rgba(184, 92, 60, 0.2) !important;
+  font-family: var(--font-sans);
+}
+
+.brochure-form-container .right .btn-wrap button {
+  background: var(--terracotta) !important;
+  color: var(--cream-warm) !important;
+}
+
+.brochure-form-container .right .btn-wrap button .round {
+  background: var(--cream-warm) !important;
+}
+
+.brochure-form-container .right .btn-wrap button .round svg path {
+  fill: var(--terracotta) !important;
+}
+
+/* ============================================================
+   FAQ — Editorial Q&A with serif questions
+   ============================================================ */
+
+.faq-super-container {
+  background: var(--cream-warm) !important;
+}
+
+.faq-section .head-container {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  color: var(--ink-warm) !important;
+}
+
+.faq-section .head-container span {
+  color: var(--terracotta) !important;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.faq-section .faq p {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px !important;
+  color: var(--ink-warm) !important;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.faq-section .faq h4 {
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  color: var(--body-warm) !important;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FOOTER — Warm editorial
+   ============================================================ */
+
+.footer-super-container {
+  background: var(--ink-warm) !important;
+}
+
+.end-footer h1 {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  color: var(--cream-warm) !important;
+  letter-spacing: -0.03em;
+}
+
+.end-footer h3 {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  color: var(--terracotta-soft) !important;
+}
+
+.end-footer p {
+  color: var(--cream-warm) !important;
+  opacity: 0.8;
+}
+
+.end-footer .link-button {
+  background: var(--terracotta) !important;
+  color: var(--cream-warm) !important;
+  border-color: var(--terracotta) !important;
+}
+
+.end-footer .link-button .round {
+  background: var(--cream-warm) !important;
+}
+
+.end-footer .link-button .round svg path {
+  fill: var(--terracotta) !important;
+}
+
+.end-footer .link-button.outline {
+  background: transparent !important;
+  color: var(--cream-warm) !important;
+  border-color: var(--cream-warm) !important;
+}
+
+.end-footer .bottom-bar p {
+  color: var(--cream-warm) !important;
+  opacity: 0.5;
+}
+
+/* ============================================================
+   EDITORIAL SECTION DIVIDERS — Kota-style numbering
+   ============================================================ */
+
+.editorial-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 60px 60px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.editorial-divider .num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--terracotta);
+  letter-spacing: 0.1em;
+}
+
+.editorial-divider .line {
+  flex: 1;
+  height: 1px;
+  background: rgba(184, 92, 60, 0.3);
+}
+
+.editorial-divider .label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--body-warm);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   GALLERY — Warm editorial photo grid
+   ============================================================ */
+
+.gallery-super-container,
+.gallery-section {
+  background: var(--cream-warm) !important;
+}
+
+.gallery-header h2 {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  color: var(--ink-warm) !important;
+  letter-spacing: -0.02em;
+}
+
+.gallery-grid img {
+  filter: sepia(0.12) saturate(1.05);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.gallery-grid img:hover {
+  filter: sepia(0) saturate(1.15);
+}
+
+/* ============================================================
+   LETTER — Editorial founder letter
+   ============================================================ */
+
+.letter-section {
+  background: var(--cream-deep-warm) !important;
+}
+
+.letter-header h2 {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  color: var(--ink-warm) !important;
+}
+
+.letter-salutation {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  color: var(--terracotta) !important;
+}
+
+.letter-body p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--body-warm);
+}
+
+.letter-signature {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  color: var(--warm-brown) !important;
+}
+
+/* ============================================================
+   STICKY CTA — Warm mobile CTA bar
+   ============================================================ */
+
+.sticky-cta-bar {
+  background: var(--terracotta) !important;
+  color: var(--cream-warm) !important;
+}
+
+.sticky-cta-bar a {
+  background: var(--cream-warm) !important;
+  color: var(--terracotta) !important;
+}
+
+/* ============================================================
+   RESPONSIVE — Warm hybrid adjustments
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .main-section section {
+    padding: 70px 24px 60px !important;
+  }
+
+  .main-section .left-section p {
+    font-size: 20px !important;
+  }
+
+  .main-section .h2 h2 {
+    font-size: 28px !important;
+  }
+
+  .amenities-hero h2 {
+    font-size: 44px !important;
+  }
+
+  .communal-facilities-section {
+    padding: 50px 24px;
+  }
+
+  .communal-facilities-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .communal-facilities-header h2 {
+    font-size: 32px;
+  }
+
+  .facilities-table thead {
+    display: none;
+  }
+
+  .facilities-table, .facilities-table tbody, .facilities-table tr, .facilities-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .facilities-table tbody tr {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(26, 20, 17, 0.1);
+  }
+
+  .facilities-table tbody td {
+    padding: 4px 0;
+  }
+
+  .facilities-table tbody td.facility-name {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .schedule-of-areas {
+    padding: 50px 24px 70px;
+  }
+
+  .schedule-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .schedule-header .meta {
+    text-align: left;
+  }
+
+  .schedule-header .title-block h2 {
+    font-size: 32px;
+  }
+
+  .schedule-table thead {
+    display: none;
+  }
+
+  .schedule-table, .schedule-table tbody, .schedule-table tr, .schedule-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .schedule-table tbody tr {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(232, 196, 168, 0.12);
+  }
+
+  .schedule-table tbody td {
+    padding: 4px 0;
+    text-align: left !important;
+  }
+
+  .schedule-table tbody td.plot-type {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .schedule-table tbody td.plot-price {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .schedule-table tbody td.plot-status {
+    text-align: left;
+    margin-top: 8px;
+  }
+
+  .investment-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-highlights .highlight {
+    border-right: none;
+    border-bottom: 1px solid rgba(232, 196, 168, 0.15);
+    padding: 30px 0;
+  }
+
+  .investment-highlights .highlight:last-child {
+    border-bottom: none;
+  }
+
+  .investment-highlights .highlight .number {
+    font-size: 42px;
+  }
+
+  .adventure-section .head-content h1 {
+    font-size: 48px !important;
+  }
+
+  .highway-section .top-section h1 {
+    font-size: 36px !important;
+  }
+
+  .vision-section .txt-name h2 {
+    font-size: 56px !important;
+  }
+
+  .vision-editorial-caption {
+    left: 24px;
+    bottom: 40px;
+    max-width: 90%;
+  }
+
+  .vision-editorial-caption p {
+    font-size: 16px;
+  }
+
+  .editorial-divider {
+    padding: 40px 24px 0;
+  }
+}
