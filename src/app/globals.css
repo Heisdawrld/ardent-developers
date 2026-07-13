@@ -541,26 +541,11 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
 }
 
-.main-section section .right-section .lines img {
-  max-width: 100%;
-  height: auto;
-  position: relative;
-  right: -12px;
-}
-
 .main-section section .right-section .lines .line-pole {
   opacity: 0.5;
   background: var(--gold);
   border-radius: 60px;
   height: 100%;
-}
-
-.main-section .side-leaf {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
 }
 
 .main-section .line-ctn {
@@ -1066,22 +1051,6 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: space-between;
 }
 
-.adventure-section section .container-img .launch-container .sale-details-container .img-leaf {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-}
-
-.adventure-section section .container-img .launch-container .sale-details-container .img-leaf.top {
-  top: -40px;
-  right: 30px;
-}
-
-.adventure-section section .container-img .launch-container .sale-details-container .img-leaf.bottom {
-  bottom: -40px;
-  left: 30px;
-}
-
 .adventure-section section .container-img .launch-container .sale-details-container .sale-price h2 {
   font-size: 22px;
   font-weight: 700;
@@ -1295,29 +1264,6 @@ img { max-width: 100%; height: auto; display: block; }
   left: 0px;
 }
 
-.faq-section section .img-leaf {
-  pointer-events: none;
-  justify-content: space-between;
-  width: 100%;
-  display: flex;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-
-.faq-section section .img-leaf img.first {
-  position: relative;
-  top: -40px;
-  left: -40px;
-}
-
-.faq-section section .img-leaf img.second {
-  position: relative;
-  top: -40px;
-  right: -40px;
-}
-
 .faq-section section h3.head-container {
   text-align: center;
   letter-spacing: 0.4px;
@@ -1474,6 +1420,456 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ============================================================
+   AMENITIES HERO + NUMBERED LIST — Habitat pattern
+   ============================================================ */
+
+.amenities-hero {
+  text-align: center;
+  padding: 0 60px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.amenities-hero h2 {
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.amenities-hero p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--body);
+  margin-bottom: 16px;
+}
+
+.amenities-list {
+  padding: 0 60px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.amenity-item {
+  display: flex;
+  gap: 24px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+
+.amenity-item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.amenity-num {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: -2px;
+  line-height: 1;
+  min-width: 60px;
+  padding-top: 4px;
+}
+
+.amenity-content {
+  flex: 1;
+}
+
+.amenity-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.amenity-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+/* ===== Market intro paragraph ===== */
+.market-intro {
+  padding: 60px 60px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.market-intro p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--body);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   INFRASTRUCTURE MAP SECTION
+   ============================================================ */
+
+.map-section {
+  background: var(--white);
+  padding: 80px 60px;
+}
+
+.map-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.map-header h2 {
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.map-header p {
+  font-size: 18px;
+  color: var(--body);
+  max-width: 600px;
+  margin: 0 auto 12px;
+  line-height: 1.5;
+}
+
+.map-hint {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.map-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--cream-deep) 0%, var(--cream) 50%, var(--gold-soft) 100%);
+  cursor: pointer;
+}
+
+.map-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-point {
+  position: absolute;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold-deep);
+  border: 3px solid var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.map-point:hover .map-dot,
+.map-point.active .map-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 0 6px rgba(230, 200, 140, 0.3), 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.map-label {
+  margin-top: 6px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+
+.map-point:hover .map-label,
+.map-point.active .map-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.map-sublabel {
+  margin-top: 4px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Timeline ===== */
+.timeline-section {
+  padding: 80px 60px;
+  background: var(--cream);
+  text-align: center;
+}
+
+.timeline-section h3 {
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+}
+
+.timeline-years {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.timeline-year {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--body);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-sans);
+}
+
+.timeline-year:hover {
+  border-color: var(--gold);
+}
+
+.timeline-year.active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.timeline-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.timeline-item p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+/* ============================================================
+   GALLERY SECTION
+   ============================================================ */
+
+.gallery-super-container {
+  width: 100%;
+  background: var(--white);
+}
+
+.gallery-section {
+  padding: 80px 60px;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.gallery-header h2 {
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.gallery-header p {
+  font-size: 18px;
+  color: var(--body);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(10, 10, 10, 0.6);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================================
+   LETTER SECTION
+   ============================================================ */
+
+.letter-super-container {
+  width: 100%;
+  background: var(--cream);
+}
+
+.letter-section {
+  padding: 100px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.letter-header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.letter-salutation {
+  font-family: var(--font-script);
+  font-size: 32px;
+  color: var(--gold-deep);
+  margin-bottom: 20px;
+}
+
+.letter-header h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--body);
+  margin-bottom: 16px;
+  letter-spacing: -0.2px;
+}
+
+.letter-header h2 {
+  font-size: 50px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.letter-body {
+  border-left: 3px solid var(--gold);
+  padding-left: 40px;
+  margin-bottom: 60px;
+}
+
+.letter-body p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body);
+  margin-bottom: 20px;
+  letter-spacing: -0.1px;
+}
+
+.letter-body p:first-child {
+  font-family: var(--font-script);
+  font-size: 24px;
+  color: var(--gold-deep);
+  margin-bottom: 28px;
+}
+
+.letter-signature {
+  text-align: right;
+  padding-right: 40px;
+}
+
+.letter-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+
+.letter-title {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ============================================================
    MOBILE RESPONSIVE
    ============================================================ */
 
@@ -1518,21 +1914,53 @@ img { max-width: 100%; height: auto; display: block; }
     max-width: 100%;
   }
 
+  /* ---- Sticky header: mobile scrollable nav pill strip (Habitat pattern) ---- */
   .sticky-header {
-    padding: 0px 20px;
-    gap: 20px;
+    padding: 0 12px;
+    gap: 8px;
+    top: 12px;
   }
 
   .sticky-header .logo img {
-    height: 50px;
+    height: 42px;
+    flex-shrink: 0;
   }
 
   .sticky-header .link-container {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;           /* Firefox */
+    gap: 4px;
+    padding: 4px;
+    border-radius: 50px;
+    flex: 1 1 0%;
+    min-width: 0;
+    /* Hide scrollbar — WebKit */
+  }
+  .sticky-header .link-container::-webkit-scrollbar {
     display: none;
   }
 
-  .sticky-header .btn-wrap {
-    display: flex;
+  .sticky-header .link-container a {
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Hide the "Download Brochure" CTA inside the pill on mobile (icon on right suffices) */
+  .sticky-header .link-container .link-button {
+    display: none;
+  }
+
+  .sticky-header .contain {
+    flex-shrink: 0;
+  }
+
+  .sticky-header .contain .box {
+    width: 6px;
+    height: 6px;
   }
 
   .main-section section {
@@ -1658,6 +2086,101 @@ img { max-width: 100%; height: auto; display: block; }
   .end-footer .bottom-bar {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* ===== New sections mobile ===== */
+  .amenities-hero {
+    padding: 0 20px 40px;
+  }
+
+  .amenities-hero h2 {
+    font-size: 32px;
+  }
+
+  .amenities-list {
+    padding: 0 20px 40px;
+  }
+
+  .amenity-item {
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .amenity-num {
+    font-size: 28px;
+    min-width: 40px;
+  }
+
+  .market-intro {
+    padding: 40px 20px 30px;
+  }
+
+  .map-section {
+    padding: 60px 20px;
+  }
+
+  .map-header h2 {
+    font-size: 32px;
+  }
+
+  .map-label,
+  .map-sublabel {
+    font-size: 9px;
+  }
+
+  .timeline-section {
+    padding: 60px 20px;
+  }
+
+  .timeline-section h3 {
+    font-size: 24px;
+  }
+
+  .timeline-years {
+    gap: 6px;
+  }
+
+  .timeline-year {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .gallery-section {
+    padding: 60px 20px;
+  }
+
+  .gallery-header h2 {
+    font-size: 32px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .letter-section {
+    padding: 60px 20px;
+  }
+
+  .letter-header h2 {
+    font-size: 32px;
+  }
+
+  .letter-salutation {
+    font-size: 24px;
+  }
+
+  .letter-body {
+    padding-left: 20px;
+    border-left-width: 2px;
+  }
+
+  .letter-body p {
+    font-size: 15px;
+  }
+
+  .letter-signature {
+    padding-right: 20px;
   }
 }
 

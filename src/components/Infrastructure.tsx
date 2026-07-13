@@ -1,31 +1,44 @@
 "use client";
 
+import { useState } from "react";
+
 /**
- * Infrastructure — Habitat `.highway-section` pattern (1:1 CSS replica).
+ * Infrastructure — Full Habitat HCFE pattern replica.
  *
- * Combines the WatermarkHeadline + VideoQuote + Location sections from the
- * previous Ardent build into a single Habitat-faithful section using the
- * classes already defined in globals.css:
- *
- *   .infrastructure-super-container
- *     .highway-section
- *       .top-section        ← white bg, big centered headline
- *         h1                 ← 60px headline w/ span.muted
- *       .middle-section     ← black bg, sticky video quote
- *         .play-overlay      ← absolute-centered play button + label
- *           .play-icon       ← 90px circle w/ hover gold ring
- *           .play-text       ← 11px uppercase label
- *         .quote             ← 36px white quote text
- *         .attribution       ← 13px uppercase attribution
- *       .bottom-section      ← cream bg, 2-col grid (text | link-button)
- *         .text              ← 22px left text about Lekki Deep Sea Port
- *         a.link-button      ← "Learn about the road infrastructure" CTA
- *
- * Source: HABITAT_REF/sections/04-infrastructure-super-container.html
- * (top section is the Lekki Corridor headline; middle is the video quote
- * with the governor attribution; bottom is the location/road-infrastructure
- * CTA in 2-column cream block).
+ * Matches Habitat's exact section flow:
+ *   1. .top-section — big headline
+ *   2. .middle-section — video quote with play button
+ *   3. .map-section — interactive infrastructure map with clickable points
+ *   4. .timeline-section — year slider (2025-2028) with projections
+ *   5. .bottom-section — 2-col cream CTA
  */
+
+const MAP_POINTS = [
+  { id: "lekki-ijebu", label: "Lekki to Ijebu Ode connecting road", top: "35%", left: "20%", sub: "How long from VI to Ijebu Ode on new road?" },
+  { id: "sagamu-benin", label: "Sagamu – Benin Expressway", top: "55%", left: "45%" },
+  { id: "dry-port", label: "Ijebu Ode Inland Dry Port", top: "65%", left: "55%" },
+  { id: "deep-sea", label: "Deep Sea Ports", top: "25%", left: "15%" },
+  { id: "food-hub", label: "Lagos Food Security Systems Hub", top: "45%", left: "35%" },
+];
+
+const TIMELINE_YEARS = [
+  {
+    year: "2025",
+    items: ["Sagamu-Ijebu Expressway expansion begins", "Perimeter fencing and gatehouse completion", "Initial plot allocations commence"],
+  },
+  {
+    year: "2026",
+    items: ["Lekki Deep Seaport Phase 2 operational", "Central water system installation", "Internal road network construction"],
+  },
+  {
+    year: "2027",
+    items: ["Ijebu Ode Inland Dry Port commissioned", "Community clubhouse construction", "Landscaping and green spaces established"],
+  },
+  {
+    year: "2028",
+    items: ["Full Lekki-Ijebu corridor open", "15 mins from Lekki Free Zone", "Estate fully serviced and habitable"],
+  },
+];
 
 /** Habitat's exact two-arrow swap-on-hover link-button roundel. */
 function LinkButtonArrowPair() {
@@ -64,6 +77,9 @@ function LinkButtonArrowPair() {
 }
 
 export default function Infrastructure() {
+  const [activePoint, setActivePoint] = useState<string | null>(null);
+  const [activeYear, setActiveYear] = useState("2028");
+
   return (
     <div id="infrastructure" className="infrastructure-super-container">
       <div className="highway-section">
@@ -115,6 +131,82 @@ export default function Infrastructure() {
           <p className="attribution">
             — Ardent Limited · Development Brief 2024
           </p>
+        </div>
+
+        {/* ============ MAP SECTION — Interactive Infrastructure Map ============ */}
+        <div className="map-section">
+          <div className="map-header">
+            <h2>Infrastructure Map</h2>
+            <p>
+              The Lekki Deep Seaport Access Road Network is opening up the Epe,
+              Ikorodu, and Ijebu communities.
+            </p>
+            <span className="map-hint">Click around to explore map</span>
+          </div>
+
+          <div className="map-container">
+            {/* Stylised map visual */}
+            <div className="map-visual">
+              {/* Road lines */}
+              <svg className="map-svg" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Main corridor line */}
+                <path d="M100 250 Q300 200 500 280 Q600 320 750 300" stroke="var(--gold)" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.6" />
+                {/* Branch roads */}
+                <path d="M200 250 L150 150" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.3" />
+                <path d="M400 260 L350 380" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.3" />
+                <path d="M600 290 L650 180" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.3" />
+                <path d="M300 230 L280 120" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.3" />
+                {/* Ardent marker */}
+                <circle cx="400" cy="260" r="12" fill="var(--gold)" opacity="0.9" />
+                <circle cx="400" cy="260" r="20" fill="none" stroke="var(--gold)" strokeWidth="2" opacity="0.4" />
+                <text x="400" y="295" textAnchor="middle" fill="var(--gold)" fontSize="13" fontWeight="600" fontFamily="var(--font-sans)">ARDENT</text>
+              </svg>
+
+              {/* Clickable map points */}
+              {MAP_POINTS.map((point) => (
+                <div
+                  key={point.id}
+                  className={`map-point ${activePoint === point.id ? "active" : ""}`}
+                  style={{ top: point.top, left: point.left }}
+                  onClick={() =>
+                    setActivePoint(activePoint === point.id ? null : point.id)
+                  }
+                >
+                  <div className="map-dot" />
+                  <div className="map-label">{point.label}</div>
+                  {point.sub && activePoint === point.id && (
+                    <div className="map-sublabel">{point.sub}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ============ TIMELINE SECTION — Year slider ============ */}
+          <div className="timeline-section">
+            <h3>Infrastructure Completion Projection</h3>
+            <div className="timeline-years">
+              {TIMELINE_YEARS.map((yr) => (
+                <button
+                  key={yr.year}
+                  className={`timeline-year ${activeYear === yr.year ? "active" : ""}`}
+                  onClick={() => setActiveYear(yr.year)}
+                >
+                  {yr.year}
+                </button>
+              ))}
+            </div>
+            <div className="timeline-content">
+              {TIMELINE_YEARS.find((yr) => yr.year === activeYear)?.items.map(
+                (item, i) => (
+                  <div key={i} className="timeline-item">
+                    <div className="timeline-dot" />
+                    <p>{item}</p>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
         </div>
 
         {/* ============ BOTTOM: 2-col cream CTA ============ */}

@@ -128,22 +128,6 @@ export default function Register() {
 
               {/* RIGHT: sale details card (LAUNCH SALE + investment block) */}
               <div className="sale-details-container">
-                {/* Decorative leaves (Habitat ad-top-leaf / ad-bottom-leaf) */}
-                <img
-                  src="/habitat-svgs/side_leaf.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="img-leaf top"
-                  style={{ opacity: 0.7 }}
-                />
-                <img
-                  src="/habitat-svgs/side_leaf.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="img-leaf bottom"
-                  style={{ opacity: 0.7, transform: "scale(-1, 1)" }}
-                />
-
                 <div className="sale-price">
                   <h2>LAUNCH SALE ONGOING</h2>
                   <ul>

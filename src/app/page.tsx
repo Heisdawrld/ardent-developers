@@ -5,6 +5,8 @@ import Vision from "@/components/Vision";
 import Amenities from "@/components/Amenities";
 import Infrastructure from "@/components/Infrastructure";
 import Register from "@/components/Register";
+import Gallery from "@/components/Gallery";
+import Letter from "@/components/Letter";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
@@ -25,19 +27,25 @@ export default function Home() {
         {/* 2. Vision — sticky full-bleed image with overlay headline */}
         <Vision />
 
-        {/* 3. Amenities — Habitat commercial/market pattern */}
+        {/* 3. Amenities — numbered features list + sticky image + market cards */}
         <Amenities />
 
-        {/* 4. Infrastructure — sticky video + quote + Lekki Corridor info */}
+        {/* 4. Infrastructure — sticky video + quote + map + timeline + Lekki Corridor info */}
         <Infrastructure />
 
         {/* 5. Pricing / Register — Habitat adventure-section pattern */}
         <Register />
 
-        {/* 6. FAQ — sticky logo + 3-column colored cards */}
+        {/* 6. Gallery — "Pictures from Site" photo grid */}
+        <Gallery />
+
+        {/* 7. Letter — CEO/founder letter to reader */}
+        <Letter />
+
+        {/* 8. FAQ — sticky logo + 3-column colored cards */}
         <FAQ />
 
-        {/* 7. Footer / final CTA */}
+        {/* 9. Footer / final CTA */}
         <Footer />
       </main>
 

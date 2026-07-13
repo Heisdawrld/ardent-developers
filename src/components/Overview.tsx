@@ -31,14 +31,6 @@ const LINE_POLES = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19] as const;
 export default function Overview() {
   return (
     <div id="overview" className="main-section">
-      {/* Decorative left-side leaf — Habitat pattern */}
-      <img
-        src="/habitat-svgs/side_leaf.svg"
-        alt=""
-        aria-hidden="true"
-        className="side-leaf"
-      />
-
       <section>
         {/* ============ LEFT: lead copy + section h2 ============ */}
         <div className="left-section">
@@ -63,14 +55,9 @@ export default function Overview() {
           </div>
         </div>
 
-        {/* ============ RIGHT: side-leaf + increasing-width gold poles ============ */}
+        {/* ============ RIGHT: increasing-width gold poles ============ */}
         <div className="right-section">
           <div className="lines">
-            <img
-              src="/habitat-svgs/side_leaf.svg"
-              alt=""
-              aria-hidden="true"
-            />
             {LINE_POLES.map((w) => (
               <div
                 key={w}

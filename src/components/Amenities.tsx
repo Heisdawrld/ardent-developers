@@ -1,31 +1,50 @@
 "use client";
 
 /**
- * Amenities — Habitat `.amenities-super-container` + `.new-habitat-commercial`
- * pattern (1:1 CSS replica).
+ * Amenities — Full Habitat HCFE pattern replica.
  *
- * Structure (from HABITAT_REF/sections/03-amenities-super-container.html):
- *
- *   .amenities-super-container
- *     .new-habitat-commercial         ← cream→white gradient wrapper
- *       .btn-tag                      ← gold-soft pill chip (eyebrow label)
- *       .avenue-section               ← full-bleed sticky image + overlay
- *         .txt-name                   ← sticky watermark name
- *           p                         ← "Ardent Lifestyle"
- *         section
- *           img                       ← full-bleed master-plan.jpg
- *           .overlay-bg > .overlay   ← 28% black tint
- *       .commercial                   ← 0 20px padding wrapper
- *         .market-container           ← flex row of 5 .market-card items
- *           .market-card
- *             img                     ← 368px tall amenity photo
- *             .title                  ← 22px ink label
- *       .bottom-container             ← centered CTA block
- *         h3                          ← 34px descriptive headline
- *         .contain-line               ← gold rule + dot separator
- *           .line > .round
- *         a.link-button               ← CTA button (Habitat pattern)
+ * Matches Habitat's exact section flow:
+ *   1. .btn-tag eyebrow chip
+ *   2. .amenities-hero — heading + description paragraphs
+ *   3. .amenities-list — 6 numbered feature items (02–07)
+ *   4. .avenue-section — full-bleed sticky image + watermark name
+ *   5. .market-intro — descriptive paragraph about the market
+ *   6. .commercial — 5 market cards
+ *   7. .bottom-container — headline + line + CTA
  */
+
+const AMENITY_ITEMS = [
+  {
+    num: "02",
+    title: "Community Power Supply",
+    desc: "Reliable transformer and generator power your plot and Commercial avenue respectively for instant construction and living.",
+  },
+  {
+    num: "03",
+    title: "Reliable Central Water System",
+    desc: "Pre-installed water system delivers potable water for immediate construction and use.",
+  },
+  {
+    num: "04",
+    title: "Perimeter Fencing",
+    desc: "Sturdy fencing secures our boundaries, providing optimal security for immediate cultivation work.",
+  },
+  {
+    num: "05",
+    title: "Intelligent Drainage System",
+    desc: "Our eco-friendly drainage design ensures estate-ready plots, prevents flooding, and recycles water.",
+  },
+  {
+    num: "06",
+    title: "Beautiful Landscaping",
+    desc: "Lush gardens and flower fields enhance estate's aesthetic appeal, boosting plot values.",
+  },
+  {
+    num: "07",
+    title: "Ardent Lifestyle Hub",
+    desc: "Our community lifestyle hub unites community members and visitors to enjoy curated experiences all year round.",
+  },
+];
 
 const MARKET_CARDS = [
   {
@@ -96,7 +115,35 @@ export default function Amenities() {
     <div id="amenities" className="amenities-super-container">
       <div className="new-habitat-commercial">
         {/* ===== Eyebrow chip ===== */}
-        <div className="btn-tag">Ardent Lifestyle</div>
+        <div className="btn-tag">Amenities</div>
+
+        {/* ===== Amenities hero — heading + intro + description ===== */}
+        <div className="amenities-hero">
+          <h2>Amenities</h2>
+          <p>
+            Ardent fosters an ecosystem where members and investors collaborate
+            to build vibrant communities, while also curating exciting lifestyle
+            experiences.
+          </p>
+          <p>
+            Our estate features an ecosystem of amenities so carefully designed
+            that your plots are fully serviced from day one. This makes sure you
+            can start building your home without delay.
+          </p>
+        </div>
+
+        {/* ===== Numbered amenity features list (02–07) ===== */}
+        <div className="amenities-list">
+          {AMENITY_ITEMS.map((item) => (
+            <div key={item.num} className="amenity-item">
+              <div className="amenity-num">{item.num}</div>
+              <div className="amenity-content">
+                <h3>{item.title}:</h3>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* ===== Full-bleed sticky master-plan image ===== */}
         <div className="avenue-section">
@@ -116,11 +163,26 @@ export default function Amenities() {
           </section>
         </div>
 
+        {/* ===== Market intro paragraph ===== */}
+        <div className="market-intro">
+          <p>
+            Positioned right along the corridor, Ardent features a thriving
+            lifestyle hub. Every activity here is designed to blend strong
+            commercial value with warm, memorable experiences for residents and
+            visitors.
+          </p>
+          <p>
+            This is far more than just an amenity area. It is a thoughtfully
+            created lifestyle ecosystem that welcomes residents with curated
+            experiences, wellness moments, and authentic stories of
+            Nigeria&apos;s rich cultural heritage and the promise of modern
+            community living — making Ardent a delightful must-visit destination
+            along the corridor.
+          </p>
+        </div>
+
         {/* ===== Market card carousel (5 amenity cards) ===== */}
         <div className="commercial">
-          {/* Habitat nests .market-container > .carousel-root > .carousel-track.
-              We collapse those wrappers and render the .market-card children
-              in a horizontal flex row with the same visual rhythm. */}
           <div
             className="market-container"
             style={{
@@ -155,9 +217,9 @@ export default function Amenities() {
           <h3>
             Ardent Lifestyle features a thoughtfully curated collection of
             community spaces. These include a charming clubhouse, a
-            farm-to-table restaurant, a wellness spa, a co-working hub, and
-            a sports complex — all designed to anchor lasting value into
-            every plot.
+            farm-to-table restaurant, a wellness spa, a co-working hub, and a
+            sports complex — all designed to anchor lasting value into every
+            plot.
           </h3>
 
           <div className="contain-line">

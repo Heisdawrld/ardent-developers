@@ -133,28 +133,6 @@ export default function FAQ() {
         </div>
 
         <section>
-          {/* Side leaf decorations (Habitat faq-leaf-left / -right pattern) */}
-          <div className="img-leaf">
-            <img
-              src="/habitat-svgs/side_leaf.svg"
-              alt=""
-              aria-hidden="true"
-              className="first"
-              style={{ width: 197, height: "auto" }}
-            />
-            <img
-              src="/habitat-svgs/side_leaf.svg"
-              alt=""
-              aria-hidden="true"
-              className="second"
-              style={{
-                width: 197,
-                height: "auto",
-                transform: "scale(-1, 1)",
-              }}
-            />
-          </div>
-
           {/* Section intro headline */}
           <h3 className="head-container">
             Some <span>frequently asked questions</span> about our project.

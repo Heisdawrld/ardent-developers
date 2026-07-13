@@ -9,8 +9,8 @@ export default function Hero() {
         <section>
           {/* ============ HERO BACKGROUND IMAGE + OVERLAY ============ */}
           <div className="img-bg">
-            {/* Image (or video when client provides one) */}
-            {/* Slot: drop a file at /public/hero.mp4 to enable video background */}
+            {/* Video background — slot: drop /public/hero.mp4 to enable */}
+            {/* Image fallback */}
             <img
               src="/images/hero-poster.jpg"
               alt="Ardent Limited luxury estate"
